@@ -1,3 +1,4 @@
+//the index.js of controllers
 const router = require('express').Router();
 
 const apiRoutes = require('./api/api.js')
