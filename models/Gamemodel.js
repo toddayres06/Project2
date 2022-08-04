@@ -8,6 +8,7 @@ Game.init(
   {
     gameId: {
       type: DataTypes.UUID,
+      defaultValue: Sequelize.UUIDV1,
     },
     player1: {
       type: DataTypes.JSON,

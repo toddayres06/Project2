@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     //and should send that game id back
     try{
     const newGame = await Game.create(req.body);
-    res.status(200).json(newGame);
+    // res.status(200).json(newGame);
     }catch (err) {
       res.status(400).json(err);
     }
