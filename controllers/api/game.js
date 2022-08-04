@@ -4,11 +4,11 @@ const router = require('express').Router();
 const Game = require('../../models/Gamemodel');
 
 //fetch for creating a game
-router.post('/', async (req, res) => {
+router.get('/', async (req, res) => {
     //here should create a new table for the game with a unique game id
     //and should send that game id back
     try{
-    const newGame = await Game.create(req.body);
+    const newGame = await Game.create({"player1":"{}","player2":"{}","playing":"false","player1turn":"true"});
     // res.status(200).json(newGame);
     }catch (err) {
       res.status(400).json(err);
