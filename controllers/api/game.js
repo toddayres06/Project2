@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     const newGame = await Game.create({"player1":"","player2":"","playing":"false","player1turn":"true"});
     res.status(200).json(newGame);
     }catch (err) {
-      res.status(400).json(err);
+      res.status(500).json(err);
     }
 });
 

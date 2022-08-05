@@ -6,6 +6,6 @@ const characterApi = require('./character.js')
 
 router.use('/game', gameApis);
 router.use('/status', statusApis);
-router.use('/')
+router.use('/character',characterApi)
 
 module.exports = router;
