@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+}
+
+:root{
+ --line-border-fill: #FFB905;
+ --line-border-empty: #e0e0e0;
+}
+body{
+  font-family:'Muli', sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #577FCE;
+}
+
+.container{
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+
+#attribute-title {
+  font-size: 20px;
+  padding-bottom: 20px;
+  text-align: start;
+
+}
+
+.health-progress-container,
+.strength-progress-container,
+.agility-progress-container,
+.luck-progress-container{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  width: 320px;
+  margin-bottom: 30px;
+}
+
+.health-progress-container::before,
+.strength-progress-container::before,
+.agility-progress-container::before,
+.luck-progress-container::before{
+  content: '';
+  position: absolute;
+  background-color: var(--line-border-empty);
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+  transform: translateY(-50%);
+}
+
+.health-progress,
+.strength-progress,
+.agility-progress,
+.luck-progress {
+  position: absolute;
+  background-color: var(--line-border-fill);
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transform: translateY(-50%);
+  transition: .4s ease;
+}
+
+.health-circle,
+.strength-circle,
+.agility-circle,
+.luck-circle
+{
+  background-color: #e0e0e0;
+  color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 30px;
+  border: 3px solid var(--line-border-empty);
+  transition: .4s ease;
+}
+
+.health-circle.health-active,
+.strength-circle.strength-active,
+.agility-circle.agility-active,
+.luck-circle.luck-active {
+  border-color: var(--line-border-fill);
+  background-color: #FFB905;
+  color: white;
+}
+
+.btn{
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  /* padding: 8px 8px; */
+  padding-bottom: 35px;
+  margin-bottom: 5px;
+  font-size: 30px;
+  border-radius: 5px;
+  text-align: center;
+  outline: none;
+}
+
+.btn:active{
+  transform: scale(0.98);
+
+}
+.btn:focus{
+  outline: none;
+}
+.btn:disabled{
+  /* background-color: var(--line-border-empty); */
+  cursor: not-allowed;
+}
+
+button {
+  outline: none;
+}
