@@ -37,7 +37,6 @@ class character{
         .catch((error) => {
             console.error('Error in POST request:', error);
         });
-
   }
 }
 
