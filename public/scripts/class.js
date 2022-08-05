@@ -1,12 +1,13 @@
-// const player1 = new Character("",)
 // const player2 = new character("",)
+const player1 = new Character(20)
+console.log(player1)
 
 //1 for testing purposes
 let id = 1;
-class characters {
+class character{
   constructor(health) {
-    this.health = health;
     this.gameID = id;
+    this.health = health;
   }
 
   isAlive() {
