@@ -1,4 +1,5 @@
 //apis for creating and joining game
+
 const router = require('express').Router();
 const Game = require('../../models/Gamemodel');
 
