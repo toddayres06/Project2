@@ -6,9 +6,11 @@ class Game extends Model {}
 
 Game.init(
   {
-    gameId: {
-      type: DataTypes.UUID,
-      defaultValue: Sequelize.UUIDV1,
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
     player1: {
       type: DataTypes.JSON,
