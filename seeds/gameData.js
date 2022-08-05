@@ -2,7 +2,6 @@ const Game  = require('../models/Gamemodel.js')
 
 const gameData = [
   {
-    gameId: '432jklj23432',
     player1: {
       id: '123213532523',
       health: 1.25,

@@ -5,16 +5,16 @@ const createGameHandler = async (event) => {
   //   method: 'GET'
   // });
   //  if (response.ok) {
-  //    document.location.replace('/api/game')
-  //  } else {
+  //   document.location.replace('/create/1');
+  // } else {
   //    alert(response.statusText)
   //  }
   console.log("test")
-  // document.location.replace('/create');
+  document.location.replace('/create/1');
+
 }
 
 const joinGameHandler = async (event) => {
-  
   const gameID = document.querySelector('#game-id').value.trim();
 
   // if (gameID) {
@@ -22,13 +22,13 @@ const joinGameHandler = async (event) => {
   //     method: 'GET',
   //   })
   //   if (response.ok) {
-  //     document.location.replace('/create');
+  //     document.location.replace('/create/2');
   //   } else {
   //     alert(response.statusText);
   //   }
   // }
-  console.log(window.location)
-  // document.location.replace('/create');
+  console.log(gameID)
+  // document.location.replace('/create/2');
 };
 
 document
