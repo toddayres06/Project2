@@ -1,6 +1,6 @@
 // const player2 = new character("",)
-const player1 = new Character(20)
-console.log(player1)
+// const player1 = new Character(20)
+// console.log(player1)
 
 //1 for testing purposes
 let id = 1;
