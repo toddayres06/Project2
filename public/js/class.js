@@ -1,8 +1,12 @@
-// const player1 = new Character("",)
 // const player2 = new character("",)
+// const player1 = new Character(20)
+// console.log(player1)
 
-class characters {
+//1 for testing purposes
+let id = 1;
+class character{
   constructor(health) {
+    this.gameID = id;
     this.health = health;
   }
 
@@ -40,4 +44,3 @@ class characters {
   // createcharascter function post fetch that pushes the characters information. Use "this".
   //
             // no idea
-
