@@ -44,4 +44,3 @@ class character{
   // createcharascter function post fetch that pushes the characters information. Use "this".
   //
             // no idea
-
