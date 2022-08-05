@@ -1,4 +1,5 @@
 //apis for creating and joining game
+
 const router = require('express').Router();
 const Game = require('../../models/Gamemodel');
 
@@ -11,7 +12,7 @@ router.get('/', async (req, res) => {
     res.status(200).json(newGame);
     // res.render('create')
     }catch (err) {
-      res.status(400).json(err);
+      res.status(500).json(err);
     }
 });
 
@@ -22,7 +23,7 @@ router.get('/', async (req, res) => {
 
 //fetch for joining a game
 router.get('/:gameId', async (req, res) => {
-   /*here should check all of the avalible tables for the game id
+  /*here should check all of the avalible tables for the game id
   if it finds it tell the front end it is found
   else tell the front end there was an error*/
   try{
@@ -30,6 +31,18 @@ router.get('/:gameId', async (req, res) => {
     if(gameData){
       res.status(200).json(gameData);
       return;
+    }
+    res.status(404).json("sorry no game has this id")
+  }catch{
+    res.status(500).json(err);
+  }
+
+
+  try{
+    const gameData = await Game.findByPk(req.params.gameId);
+    if(gameData){
+      res.status(200).json(gameData)
+      return
     }
     res.status(404).json("sorry no game has this id")
   }catch{

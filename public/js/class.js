@@ -1,10 +1,11 @@
-// const player1 = new Character("",)
 // const player2 = new character("",)
+// const player1 = new Character(20)
+// console.log(player1)
 
-// const { Model } = require("sequelize/types");
-
-class Characters {
-  constructor(health, strength, agility, dexterity) {
+let id = 1;
+class character{
+  constructor(health) {
+    this.gameID = id;
     this.health = health;
     this.strength = strength;
     this.agility = agility;
@@ -47,5 +48,3 @@ module.export = Characters
         
 
   // createcharascter function post fetch that pushes the characters information. Use "this".
-  // no idea
-
