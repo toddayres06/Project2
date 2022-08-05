@@ -15,6 +15,10 @@ router.get('/', async (req, res) => {
     }
 });
 
+// .catch(err) {
+//   console.log(err)
+// }
+
 
 //fetch for joining a game
 router.get('/:gameId', async (req, res) => {

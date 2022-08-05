@@ -1,10 +1,16 @@
 // const player1 = new Character("",)
 // const player2 = new character("",)
 
-class characters {
-  constructor(health) {
+// const { Model } = require("sequelize/types");
+
+class Characters {
+  constructor(health, strength, agility, dexterity) {
     this.health = health;
+    this.strength = strength;
+    this.agility = agility;
+    this.dexterity = dexterity;
   }
+
 
   isAlive() {
     if (this.health > 0) {
@@ -15,7 +21,8 @@ class characters {
   }
 
    create() {
-    fetch('/api/character', {
+     console.log(this);
+    fetch('/api/character/', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -33,11 +40,12 @@ class characters {
   }
 }
 
+module.export = Characters
+
 // make api call on back end post for API character request.body push to server
 
         
 
   // createcharascter function post fetch that pushes the characters information. Use "this".
-  //
-            // no idea
+  // no idea
 
