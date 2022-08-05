@@ -1,17 +1,17 @@
 
 function status() {
-    // fetch('/api/status/gameid')
-    // .then(res => {
-    //     if (res.ok){
-    //         console.log('Success')
-    //     } else {
-    //         console.log('Error')
-    //     }
-    //     return res.json();
-    // })
-    // .then(data => console.log(data))
-    // .catch(error => console.log(error))
-    console.log('d')
+    fetch('/api/status/gameid')
+    .then(res => {
+        if (res.ok){
+            console.log('Success')
+        } else {
+            console.log('Error')
+        }
+        return res.json();
+    })
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
+    
 } 
 
 function ping() {

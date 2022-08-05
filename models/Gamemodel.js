@@ -7,8 +7,11 @@ class Game extends Model {}
 //game table contains gameid, player 1 object, player 2 object, a boolean as to whether the game is being played, and player1turn, which determines whose turn it is
 Game.init(
   {
-    gameId: {
-      type: DataTypes.UUID,
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
     player1: {
       type: DataTypes.JSON,
