@@ -2,13 +2,15 @@
 
 const router = require('express').Router();
 const Game = require('../../models/Gamemodel');
+var generator = require('generate-password');
 
 //fetch for creating a game
 router.get('/', async (req, res) => {
     //here should create a new table for the game with a unique game id
     //and should send that game id back
+    let code = generator.generate({length: 4,numbers: true,lowercase:false});
     try{
-    const newGame = await Game.create({"player1":"","player2":"","playing":"false","player1turn":"true"});
+    const newGame = await Game.create({"Game_id":code,"player1":null,"player2":null,"playing":"false","player1turn":"true"});
     res.status(200).json(newGame);
     // res.render('create')
     }catch (err) {
@@ -29,6 +31,9 @@ router.get('/:gameId', async (req, res) => {
   try{
     const gameData = await Game.findByPk(req.params.gameId);
     if(gameData){
+      if(!gameData.playing){
+
+      }
       res.status(200).json(gameData);
       return;
     }
@@ -40,7 +45,12 @@ router.get('/:gameId', async (req, res) => {
 
 // function to do a move
 router.post('/action/:userAction', async (req, res) => {
-  
+  let userAction = req.params.userAction
+  let info = req.body
+
+  if(info.attack == ""){
+    
+  }
 
 
 });

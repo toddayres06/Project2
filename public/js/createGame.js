@@ -9,7 +9,7 @@ const createGameHandler = async (event) => {
      alert(response.statusText)
    }
   console.log("test")
-  document.location.apply('/create/1');
+  document.location.assign('/create/1');
 }
 
 const joinGameHandler = async (event) => {
@@ -21,7 +21,7 @@ const joinGameHandler = async (event) => {
       method: 'GET',
     })
     if (response.ok) {
-      document.location.apply('/create/2');
+      document.location.assign('/create/2');
     } else {
       alert(response.statusText);
     }
