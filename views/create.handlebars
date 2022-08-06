@@ -1,14 +1,21 @@
 
+<div class="container">
 
+  <div class="row">
+    <div class="col-sm">
+      <button type="button" class="btn-danger rounded-button" id="start-game">START</button>
+    </div>
+  </div>
 
-<div>
-  <button type="button" class="btn btn-danger" id="start-game">START</button>
-</div>
+  <div class="row row-cols-1">
+    <div class="blockquote text-center">
+      <p class="remaining-points"></p>
+    </div>
+  </div>
 
-<div class="attribute-controllers">
-  <div class="container">
+  <div class="attribute-controllers">
     <div class="form-check-inline">
-      <p id="attribute-title">Health: </p>
+      <p id="attribute-title">Health </p>
       <div>  
         <button type="button" id="health-prev" class="btn" disabled>-</button> 
       </div>
@@ -22,64 +29,65 @@
       </div> 
       <div> 
         <button type="button" id="health-next" class="btn">+</button> 
+      </div>
     </div>
-  </div>
 
-  <div class="container">
-    <div class="form-check-inline">
-      <p id="attribute-title">Strength: </p>
-      <div>  
-        <button type="button" id="strength-prev" class="btn" disabled>-</button> 
-      </div>
-      <div class="strength-progress-container">
-        <div class="strength-progress" id="strength-progress"></div>
-        <div class="strength-circle strength-active">★</div>
-        <div class="strength-circle">★</div>
-        <div class="strength-circle">★</div>
-        <div class="strength-circle">★</div>
-        <div class="strength-circle">★</div>
-      </div> 
-      <div> 
-        <button type="button" id="strength-next" class="btn">+</button> 
-      </div>
-  </div>
+    <div>
+      <div class="form-check-inline">
+        <p id="attribute-title">Strength </p>
+        <div>  
+          <button type="button" id="strength-prev" class="btn" disabled>-</button> 
+        </div>
+        <div class="strength-progress-container">
+          <div class="strength-progress" id="strength-progress"></div>
+          <div class="strength-circle strength-active">★</div>
+          <div class="strength-circle">★</div>
+          <div class="strength-circle">★</div>
+          <div class="strength-circle">★</div>
+          <div class="strength-circle">★</div>
+        </div> 
+        <div> 
+          <button type="button" id="strength-next" class="btn">+</button> 
+        </div>
+    </div>
 
-  <div class="container">
-    <div class="form-check-inline">
-      <p id="attribute-title">Agility: </p>
-      <div>  
-        <button type="button" id="agility-prev" class="btn" disabled>-</button> 
-      </div>
-      <div class="agility-progress-container">
-        <div class="agility-progress" id="agility-progress"></div>
-        <div class="agility-circle agility-active">★</div>
-        <div class="agility-circle">★</div>
-        <div class="agility-circle">★</div>
-        <div class="agility-circle">★</div>
-        <div class="agility-circle">★</div>
-      </div> 
-      <div> 
-        <button type="button" id="agility-next" class="btn">+</button> 
-      </div>
-  </div>
+    <div>
+      <div class="form-check-inline">
+        <p id="attribute-title">Agility </p>
+        <div>  
+          <button type="button" id="agility-prev" class="btn" disabled>-</button> 
+        </div>
+        <div class="agility-progress-container">
+          <div class="agility-progress" id="agility-progress"></div>
+          <div class="agility-circle agility-active">★</div>
+          <div class="agility-circle">★</div>
+          <div class="agility-circle">★</div>
+          <div class="agility-circle">★</div>
+          <div class="agility-circle">★</div>
+        </div> 
+        <div> 
+          <button type="button" id="agility-next" class="btn">+</button> 
+        </div>
+    </div>
 
-  <div class="container">
-    <div class="form-check-inline">
-      <p id="attribute-title">Luck:</p>
-      <div>  
-        <button type="button" id="luck-prev" class="btn" disabled>-</button> 
-      </div>
-      <div class="luck-progress-container">
-        <div class="luck-progress" id="luck-progress"></div>
-        <div class="luck-circle luck-active">★</div>
-        <div class="luck-circle">★</div>
-        <div class="luck-circle">★</div>
-        <div class="luck-circle">★</div>
-        <div class="luck-circle">★</div>
-      </div> 
-      <div> 
-        <button type="button" id="luck-next" class="btn">+</button> 
-      </div>
+    <div>
+      <div class="form-check-inline">
+        <p id="attribute-title">Luck</p>
+        <div>  
+          <button type="button" id="luck-prev" class="btn" disabled>-</button> 
+        </div>
+        <div class="luck-progress-container">
+          <div class="luck-progress" id="luck-progress"></div>
+          <div class="luck-circle luck-active">★</div>
+          <div class="luck-circle">★</div>
+          <div class="luck-circle">★</div>
+          <div class="luck-circle">★</div>
+          <div class="luck-circle">★</div>
+        </div> 
+        <div> 
+          <button type="button" id="luck-next" class="btn">+</button> 
+        </div>
+    </div>
   </div>
 
   <script src="../js/createChar.js"></script>

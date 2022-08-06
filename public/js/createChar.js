@@ -47,18 +47,18 @@ const luckNext = document.getElementById('luck-next')
 const luckCircles = document.querySelectorAll('.luck-circle')
 
 const createCharacter = document.getElementById('start-game')
-
+const pointsContainer = document.querySelector('.remaining-points')
 
 
 let currentHealth = 1;
 let currentStrength = 1;
 let currentAgility = 1;
 let currentLuck = 1;
-
+let totalPoints = 4;
 
 
 const atMaxPoints = () => {
-  let totalPoints = currentHealth + currentStrength + currentAgility + currentLuck;
+  totalPoints = currentHealth + currentStrength + currentAgility + currentLuck;
   if (totalPoints >= 10 ){
     luckNext.disabled = true;
     agilityNext.disabled = true;
@@ -73,19 +73,24 @@ const atMaxPoints = () => {
 }
 
 
+const showPoints = (points) => {
+  pointsContainer.innerHTML = `Remaining points: ${10 - points}`
+}
 
-
+showPoints(totalPoints);
 
 healthNext.addEventListener('click', () => {
   increaseHealthStat()
   updateHealth()
   atMaxPoints()
+  showPoints(totalPoints);
 })
 
 healthPrev.addEventListener('click', () => {
   decreaseHealthStat()
   updateHealth()
   atMaxPoints()
+  showPoints(totalPoints);
 })
 
 // function to decrease health stat
@@ -136,12 +141,14 @@ strengthNext.addEventListener('click', () => {
   increaseStrengthStat()
   updateStrength()
   atMaxPoints()
+  showPoints(totalPoints);
 })
 
 strengthPrev.addEventListener('click', () => {
   decreaseStrengthStat()
   updateStrength()
   atMaxPoints()
+  showPoints(totalPoints);
 })
 
 // function to decrease Strength stat
@@ -193,12 +200,14 @@ agilityNext.addEventListener('click', () => {
   increaseAgilityStat()
   updateAgility()
   atMaxPoints()
+  showPoints(totalPoints);
 })
 
 agilityPrev.addEventListener('click', () => {
   decreaseAgilityStat()
   updateAgility()
   atMaxPoints()
+  showPoints(totalPoints);
 })
 
 // function to decrease Agility stat
@@ -250,12 +259,14 @@ luckNext.addEventListener('click', () => {
   increaseLuckStat()
   updateLuck()
   atMaxPoints()
+  showPoints(totalPoints);
 })
 
 luckPrev.addEventListener('click', () => {
   decreaseLuckStat()
   updateLuck()
   atMaxPoints()
+  showPoints(totalPoints);
 })
 
 // function to decrease luck stat
@@ -308,11 +319,10 @@ const playerNum = url.substring(url.length-1)
 createCharacter.addEventListener('click', async () => {
   const currentCharacter = new Characters(currentHealth, currentStrength, currentAgility, currentLuck);
   currentCharacter.create(playerNum);
-  if (response == 1) {
-    //send to wait screen
-  } if (response == 2) {
-
+  if(playerNum === '1') {
+    document.location.assign('/waiting')
+  } else {
+    document.location.assign('/game')
   }
-  // console.log(currentCharacter);
 })
 

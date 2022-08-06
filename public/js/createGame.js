@@ -4,30 +4,32 @@ const createGameHandler = async (event) => {
     method: 'GET'
   });
    if (response.ok) {
-    document.location.replace('/create/1');
+     let data = await response.json();
+    localStorage.setItem("gameID", JSON.stringify(data.id));
+    document.location.assign('/create/1');
   } else {
      alert(response.statusText)
    }
-  console.log("test")
-  document.location.apply('/create/1');
+
 }
 
 const joinGameHandler = async (event) => {
   event.preventDefault(); 
-  const gameID = document.querySelector('#game-id').value.trim();
+  const gameID = document.querySelector('#game-id').value.trim().toUpperCase();
+  
 
   if (gameID) {
     const response = await fetch(`/api/game/${gameID}`, {
       method: 'GET',
     })
     if (response.ok) {
-      document.location.apply('/create/2');
+      document.location.assign('/create/2');
     } else {
       alert(response.statusText);
     }
   }
-  console.log(gameID)
-  // document.location.replace('/create/2');
+  // console.log(gameID)
+  // document.location.assign('/create/2');
 };
 
 document
