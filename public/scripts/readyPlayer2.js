@@ -9,6 +9,8 @@ function isPlaying() {
       if (response.playing) {
         console.log("I can redirect when the waiting room is built");
         //redirect to game screen
+      } else {
+        console.log('Still waiting on player 2')
       }
     })
 
