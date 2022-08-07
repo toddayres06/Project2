@@ -44,7 +44,7 @@ router.post('/action', async (req, res) => {
   let info = req.body
 
   const gameData = await Game.findByPk(info.gameId);
-
+  
   if(info.action == "attack"){
     let opp;
     let minAttack = 3- parseInt(info.dexterity)
@@ -63,9 +63,19 @@ router.post('/action', async (req, res) => {
     res.status(200).json(opp);
   }
   if(info.action == "heal"){
-    
+    let player;
+    if(info.player == 1){
+      player = gameData.player1
+      player.health += 5
+      Game.update({player1:player},{where:{game_id:info.gameId}})
+    }
+    if(info.player == 2){
+      player = gameData.player2
+      player.health += 5
+      Game.update({player2:player},{where:{game_id:info.gameId}})
+    }
+    res.status(200).json(player);
   }
-  
 });
 
 module.exports = router;
