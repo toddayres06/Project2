@@ -1,5 +1,4 @@
-//apis for creating and joining game
-
+// all of our requires
 const router = require('express').Router();
 const Game = require('../../models/Gamemodel');
 var generator = require('generate-password');
@@ -7,11 +6,14 @@ const random = require('random')
 
 //fetch for creating a game
 router.get('/', async (req, res) => {
-    //here should create a new table for the game with a unique game id
-    //and should send that game id back
+    //making a random game code for the game
     let code = generator.generate({length: 4,numbers: true,lowercase:false});
     try{
+
+      //making a new row in the database
     const newGame = await Game.create({"game_id":code,"player1":null,"player2":null,"playing":"false","player1turn":"true"});
+    //sending back a status 200 with the game info
+
     res.status(200).json(newGame);
     // res.render('create')
     }catch (err) {
@@ -19,20 +21,17 @@ router.get('/', async (req, res) => {
     }
 });
 
-// .catch(err) {
-//   console.log(err)
-// }
-
-
 //fetch for pulling the game info, to check status and join game
 router.get('/:gameId', async (req, res) => {
   try{
+    //using the params to find the game
     const gameData = await Game.findByPk(req.params.gameId);
+    //if it finds the game, send back a status 200 with the game data
     if(gameData){
-      
       res.status(200).json(gameData);
       return;
     }
+    //else send a 404
     res.status(404).json("sorry no game has this id")
   }catch{
     res.status(500).json(err);
