@@ -25,15 +25,10 @@ router.get('/', async (req, res) => {
 
 //fetch for pulling the game info, to check status and join game
 router.get('/:gameId', async (req, res) => {
-  /*here should check all of the avalible tables for the game id
-  if it finds it tell the front end it is found
-  else tell the front end there was an error*/
   try{
     const gameData = await Game.findByPk(req.params.gameId);
     if(gameData){
-      if(!gameData.playing){
-
-      }
+      
       res.status(200).json(gameData);
       return;
     }
@@ -48,11 +43,15 @@ router.post('/action/:userAction', async (req, res) => {
   let userAction = req.params.userAction
   let info = req.body
 
-  if(info.attack == ""){
+  if(info.attack == "attack"){
     
   }
-
-
+  if(info.attack == "super"){
+    
+  }
+  if(info.attack == "heal"){
+    
+  }
 });
 
 module.exports = router;
