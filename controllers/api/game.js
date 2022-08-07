@@ -64,14 +64,16 @@ router.post('/action', async (req, res) => {
   }
   if(info.action == "heal"){
     let player;
+    let healAb = parseInt(info.healing)
+    let heal = random.int((min = healAb -1), (max =  healAb + 1))
     if(info.player == 1){
       player = gameData.player1
-      player.health += 5
+      player.health += heal
       Game.update({player1:player},{where:{game_id:info.gameId}})
     }
     if(info.player == 2){
       player = gameData.player2
-      player.health += 5
+      player.health += heal
       Game.update({player2:player},{where:{game_id:info.gameId}})
     }
     res.status(200).json(player);
