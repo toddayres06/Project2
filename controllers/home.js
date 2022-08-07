@@ -20,4 +20,8 @@ router.get('/waiting', (req, res) => {
   res.render('waitingroom');
 })
 
+router.get('/game', (req, res) => {
+  res.render('game');
+})
+
 module.exports = router;
