@@ -1,8 +1,10 @@
+
+
 const attackHandler = function () {
     console.log('You attacked!')
 };
 
-const specialAttackHanler = function () {
+const specialAttackHandler = function () {
     console.log('You did a special attack!')
 }
 
@@ -16,7 +18,7 @@ document
 
 document
 .querySelector('#special-attack')
-.addEventListener('click', specialAttackHanler)
+.addEventListener('click', specialAttackHandler)
 
 document
 .querySelector('#heal')

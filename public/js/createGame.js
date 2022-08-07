@@ -6,7 +6,7 @@ const createGameHandler = async (event) => {
    if (response.ok) {
     let data = await response.json();
     const gameData = {player: 1, game_id: data.game_id}
-    localStorage.setItem("gameID", JSON.stringify(gameData));
+    localStorage.setItem("gameData", JSON.stringify(gameData));
     document.location.assign('/create/1');
   } else {
      alert(response.statusText)
@@ -23,7 +23,7 @@ const joinGameHandler = async (event) => {
     })
     if (response.ok) {
       const gameData = {player: 2, game_id: gameID}
-      localStorage.setItem("gameID", JSON.stringify(gameData));
+      localStorage.setItem("gameData", JSON.stringify(gameData));
       document.location.assign('/create/2');
     } else {
       alert(response.statusText);

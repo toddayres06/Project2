@@ -1,31 +1,32 @@
-class Characters {
+class Character{
   constructor(health, strength, agility, dexterity) {
     this.health = health;
     this.strength = strength;
     this.agility = agility;
     this.dexterity = dexterity;
   }
-   create(playerID) {
-    fetch(`/api/character/2/${playerID}`, {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json',
-        },
-        body: JSON.stringify(this),
-        })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log('Successful POST request:', data); 
-            //if 1 go to wait screen
-            //if 2 go to game    
-        })
-        .catch((error) => {
-            console.error('Error in POST request:', error);
-        });
 
+  create() {
+  //  console.log(this);
+  const gameData = localStorage.getItem("gameData");
+  const gameID = JSON.parse(gameData).game_id;
+  const player = JSON.parse(gameData).player;
+  fetch(`/api/character/${player}/${gameID}`, {
+      method: 'POST',
+      headers: {
+          'Content-type': 'application/json',
+      },
+      body: JSON.stringify(this),
+      })
+      .then((res) => res.json(res))
+      .then((data) => {
+          console.log('Successful POST request:', data);     
+      })
+      .catch((error) => {
+          console.error('Error in POST request:', error);
+      });
   }
 }
-
 const healthProgress = document.getElementById('health-progress')
 const healthPrev = document.getElementById('health-prev')
 const healthNext = document.getElementById('health-next')
@@ -315,15 +316,23 @@ luckProgress.style.width = (actives.length - 1) / (luckCircles.length - 1) * 100
 
 const url = window.location.href;
 const playerNum = url.substring(url.length-1)
+const gameData = localStorage.getItem("gameData");
+const gameID = JSON.parse(gameData).game_id;
+
 
 createCharacter.addEventListener('click', async () => {
-  const currentCharacter = new Characters(currentHealth, currentStrength, currentAgility, currentLuck);
-  currentCharacter.create(playerNum);
-  // console.log(currentCharacter);
+  const currentCharacter = new Character(currentHealth, currentStrength, currentAgility, currentLuck);
+  currentCharacter.create();
+  console.log("working")
   if(playerNum === '1') {
-    document.location.assign('/waiting')
+    // console.log(gameID)
+    // console.log(currentCharacter);
+    // document.location.assign('/waiting')
   } else {
-    document.location.assign('/game')
+    // currentCharacter.create(playerNum, gameID);
+    // console.log(gameID)
+    // console.log(currentCharacter);
+    // document.location.assign('/game')
   }
 
 })
