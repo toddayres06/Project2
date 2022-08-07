@@ -9,7 +9,7 @@ class Game extends Model {}
 
 Game.init(
   {
-    Game_id: {
+    game_id: {
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,

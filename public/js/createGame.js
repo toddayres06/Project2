@@ -1,6 +1,6 @@
 const createGameHandler = async (event) => {
   event.preventDefault(); 
-  const response = await fetch('/api/game', {
+  const response = await fetch('/api/game/', {
     method: 'GET'
   });
    if (response.ok) {
