@@ -18,16 +18,13 @@ body{
   background-color: var(--blue);
 }
 
-.x-center {
-  justify-content: center;
-}
-
-
 .container {
   justify-content: center;
   font-weight: bold;
-  text-align: end;
+  text-align: center;
 }
+
+
 
 #attribute-title {
   font-size: 20px;
@@ -194,6 +191,9 @@ i {
   font-size: 1.4vw;
 }
 
+.x-center {
+  justify-content: center;
+}
 
 
 @media screen and (min-width: 1007px) {

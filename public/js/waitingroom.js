@@ -2,12 +2,12 @@ const currentGame = document.querySelector('.current-game');
 
 const getCurrentID = () => {
   // console.log(localStorage.getItem("gameID"))
-  let currentGameID = localStorage.getItem("gameID")
-  if (currentGameID) {
-    currentGame.textContent = currentGameID.game_id;
+  const currentGameData = localStorage.getItem("gameID")
+  if (currentGameData) {
+    const gameId = JSON.parse(currentGameData).game_id;
+    currentGame.textContent = gameId;
   } else {
     currentGame.textContent = "Error";
-
   }
 }
 
