@@ -319,9 +319,7 @@ const playerNum = url.substring(url.length-1)
 createCharacter.addEventListener('click', async () => {
   const currentCharacter = new Characters(currentHealth, currentStrength, currentAgility, currentLuck);
   currentCharacter.create(playerNum);
-
   // console.log(currentCharacter);
-
   if(playerNum === '1') {
     document.location.assign('/waiting')
   } else {
