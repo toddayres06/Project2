@@ -3,6 +3,7 @@
 const router = require('express').Router();
 const Game = require('../../models/Gamemodel');
 var generator = require('generate-password');
+const random = require('random')
 
 //fetch for creating a game
 router.get('/', async (req, res) => {
@@ -39,19 +40,32 @@ router.get('/:gameId', async (req, res) => {
 });
 
 // function to do a move
-router.post('/action/:userAction', async (req, res) => {
-  let userAction = req.params.userAction
+router.post('/action', async (req, res) => {
   let info = req.body
 
-  if(info.attack == "attack"){
+  const gameData = await Game.findByPk(info.gameId);
+
+  if(info.action == "attack"){
+    let opp;
+    let minAttack = 3- parseInt(info.dexterity)
+    let attack = random.int((min = info.attack-minAttack), (max =  parseInt(info.attack)+3))
+    
+    if(info.player == 1){
+      opp = gameData.player2
+      opp.health -= attack
+      Game.update({player2:opp},{where:{game_id:info.gameId}})
+    }
+    if(info.player == 2){
+      opp = gameData.player1
+      opp.health -= attack
+      Game.update({player1:opp},{where:{game_id:info.gameId}})
+    }
+    res.status(200).json(opp);
+  }
+  if(info.action == "heal"){
     
   }
-  if(info.attack == "super"){
-    
-  }
-  if(info.attack == "heal"){
-    
-  }
+  
 });
 
 module.exports = router;
