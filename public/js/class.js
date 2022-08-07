@@ -4,7 +4,7 @@
 
 let id = 1;
 class character{
-  constructor(health) {
+  constructor(health, strength, agility, dexterity) {
     this.gameID = id;
     this.health = health;
     this.strength = strength;
@@ -12,31 +12,25 @@ class character{
     this.dexterity = dexterity;
   }
 
-
-  isAlive() {
-    if (this.health > 0) {
-      console.log("Character is Alive!");
-    } else {
-      console.log("You have died!");
-    }
-  }
-
-   create() {
-     console.log(this);
-    fetch('/api/character/', {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json',
-        },
-        body: JSON.stringify(this),
-        })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log('Successful POST request:', data);     
-        })
-        .catch((error) => {
-            console.error('Error in POST request:', error);
-        });
+  create() {
+  //  console.log(this);
+  const gameData = localStorage.getItem("gameData");
+  const gameID = JSON.parse(gameData).game_id;
+  const player = JSON.parse(gameData).player;
+  fetch(`/api/character/${player}/${gameID}`, {
+      method: 'POST',
+      headers: {
+          'Content-type': 'application/json',
+      },
+      body: JSON.stringify(this),
+      })
+      .then((res) => res.json(res))
+      .then((data) => {
+          console.log('Successful POST request:', data);     
+      })
+      .catch((error) => {
+          console.error('Error in POST request:', error);
+      });
   }
 }
 

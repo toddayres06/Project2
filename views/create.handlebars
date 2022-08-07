@@ -1,94 +1,169 @@
 
 <div class="container">
 
-  <div class="row">
-    <div class="col-sm">
+  <div class="row y-center">
+    <div class="col-6">
+      {{!-- <img id="player" src="../assets/human.png"> --}}
+    </div>
+    <div class="col-6">
       <button type="button" class="btn-danger rounded-button" id="start-game">START</button>
     </div>
   </div>
 
-  <div class="row row-cols-1">
-    <div class="blockquote text-center">
-      <p class="remaining-points"></p>
+  <div class="row x-center">
+    <div class="text-center">
+      <h4 class="remaining-points"></h4>
+    </div>
+  </div>
+  
+  <div class="attribute-controllers row y-center">
+    <div class="col-3 col-4-sm">
+      <span style="font-size: 3em;">
+        <i class="fa-solid fa-hand-holding-medical"></i>
+      </span>
+    </div>
+
+    <div>  
+      <button type="button" id="health-prev" class="btn" disabled>
+        <i class="fa-solid fa-minus"></i>
+      </button> 
+    </div>
+    <div class="health-progress-container">
+      <div class="health-progress" id="health-progress"></div>
+      <div class="health-circle health-active">★</div>
+      <div class="health-circle">★</div>
+      <div class="health-circle">★</div>
+      <div class="health-circle">★</div>
+      <div class="health-circle">★</div>
+    </div> 
+    <div> 
+      <button type="button" id="health-next" class="btn">
+        <i class="fa-solid fa-plus"></i>
+      </button> 
     </div>
   </div>
 
-  <div class="attribute-controllers">
-    <div class="form-check-inline">
-      <p id="attribute-title">Health </p>
-      <div>  
-        <button type="button" id="health-prev" class="btn" disabled>-</button> 
-      </div>
-      <div class="health-progress-container">
-        <div class="health-progress" id="health-progress"></div>
-        <div class="health-circle health-active">★</div>
-        <div class="health-circle">★</div>
-        <div class="health-circle">★</div>
-        <div class="health-circle">★</div>
-        <div class="health-circle">★</div>
-      </div> 
-      <div> 
-        <button type="button" id="health-next" class="btn">+</button> 
-      </div>
-    </div>
 
-    <div>
-      <div class="form-check-inline">
-        <p id="attribute-title">Strength </p>
-        <div>  
-          <button type="button" id="strength-prev" class="btn" disabled>-</button> 
-        </div>
-        <div class="strength-progress-container">
-          <div class="strength-progress" id="strength-progress"></div>
-          <div class="strength-circle strength-active">★</div>
-          <div class="strength-circle">★</div>
-          <div class="strength-circle">★</div>
-          <div class="strength-circle">★</div>
-          <div class="strength-circle">★</div>
-        </div> 
-        <div> 
-          <button type="button" id="strength-next" class="btn">+</button> 
-        </div>
-    </div>
 
-    <div>
-      <div class="form-check-inline">
-        <p id="attribute-title">Agility </p>
-        <div>  
-          <button type="button" id="agility-prev" class="btn" disabled>-</button> 
-        </div>
-        <div class="agility-progress-container">
-          <div class="agility-progress" id="agility-progress"></div>
-          <div class="agility-circle agility-active">★</div>
-          <div class="agility-circle">★</div>
-          <div class="agility-circle">★</div>
-          <div class="agility-circle">★</div>
-          <div class="agility-circle">★</div>
-        </div> 
-        <div> 
-          <button type="button" id="agility-next" class="btn">+</button> 
-        </div>
-    </div>
 
-    <div>
-      <div class="form-check-inline">
-        <p id="attribute-title">Luck</p>
-        <div>  
-          <button type="button" id="luck-prev" class="btn" disabled>-</button> 
-        </div>
-        <div class="luck-progress-container">
-          <div class="luck-progress" id="luck-progress"></div>
-          <div class="luck-circle luck-active">★</div>
-          <div class="luck-circle">★</div>
-          <div class="luck-circle">★</div>
-          <div class="luck-circle">★</div>
-          <div class="luck-circle">★</div>
-        </div> 
-        <div> 
-          <button type="button" id="luck-next" class="btn">+</button> 
-        </div>
+
+  <div class="attribute-controllers row y-center">
+    <div class="col-3 col-4-sm">
+      <span style="font-size: 3em;">
+        <i class="fa-solid fa-hand-fist"></i>
+      </span>
+    </div>
+    
+    <div>  
+      <button type="button" id="strength-prev" class="btn" disabled>
+        <i class="fa-solid fa-minus"></i>
+      </button> 
+    </div>
+    <div class="strength-progress-container">
+      <div class="strength-progress" id="strength-progress"></div>
+      <div class="strength-circle strength-active">★</div>
+      <div class="strength-circle">★</div>
+      <div class="strength-circle">★</div>
+      <div class="strength-circle">★</div>
+      <div class="strength-circle">★</div>
+    </div> 
+    <div> 
+      <button type="button" id="strength-next" class="btn">
+        <i class="fa-solid fa-plus"></i>
+      </button> 
     </div>
   </div>
 
-  <script src="../js/createChar.js"></script>
+      
+
+  <div class="attribute-controllers row y-center">
+    <div class="col-3 col-4-sm">
+      <span style="font-size: 3em;">
+        <i class="fa-solid fa-person-walking"></i>
+      </span>
+    </div>
+
+    <div>  
+      <button type="button" id="agility-prev" class="btn" disabled>
+        <i class="fa-solid fa-minus"></i>
+      </button> 
+    </div>
+    <div class="agility-progress-container">
+      <div class="agility-progress" id="agility-progress"></div>
+      <div class="agility-circle agility-active">★</div>
+      <div class="agility-circle">★</div>
+      <div class="agility-circle">★</div>
+      <div class="agility-circle">★</div>
+      <div class="agility-circle">★</div>
+    </div> 
+    <div> 
+      <button type="button" id="agility-next" class="btn">
+        <i class="fa-solid fa-plus"></i>
+      </button> 
+    </div>
+  </div>
+
+  <div class="attribute-controllers row y-center">
+    <div class="col-3 col-4-sm">
+      <span style="font-size: 3em;">
+        <i class="fa-solid fa-shield-halved"></i>
+      </span>
+    </div>
+    <div>  
+      <button type="button" id="luck-prev" class="btn" disabled>
+        <i class="fa-solid fa-minus"></i>
+      </button> 
+    </div>
+    <div class="luck-progress-container">
+      <div class="luck-progress" id="luck-progress"></div>
+      <div class="luck-circle luck-active">★</div>
+      <div class="luck-circle">★</div>
+      <div class="luck-circle">★</div>
+      <div class="luck-circle">★</div>
+      <div class="luck-circle">★</div>
+    </div> 
+    <div> 
+      <button type="button" id="luck-next" class="btn">
+        <i class="fa-solid fa-plus"></i>
+      </button> 
+    </div>
+  </div>
+
+  <div class="row definitions" id="x-center">
+    <div class="col-3">
+      <span style="font-size: 3em;">
+        <i class="fa-solid fa-hand-holding-medical"></i>
+      </span>
+      <p>HEALTH: This stat increases your character's health.</p>
+    </div>
+
+    <div class="col-3">
+      <span style="font-size: 3em;">
+        <i class="fa-solid fa-hand-fist"></i>
+      </span>
+      <p>ATTACK: This stat increases your character's attack.</p>
+    </div>
+
+    <div class="col-3">
+      <span style="font-size: 3em;">
+        <i class="fa-solid fa-person-walking"></i>
+      </span>
+      <p>AGILITY: This stat increases your character's ability to dodge an attack.</p>
+    </div>
+
+    <div class="col-3">
+      <span style="font-size: 3em;">
+        <i class="fa-solid fa-shield-halved"></i>
+      </span>
+      <p>DEFENSE: This stat decreases the amount of damage your character takes.</p>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+<script src="../js/createChar.js"></script>
   

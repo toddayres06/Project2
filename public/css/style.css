@@ -18,17 +18,19 @@ body{
   background-color: var(--blue);
 }
 
-.container{
-  text-align: center;
+.container {
   justify-content: center;
   font-weight: bold;
+  text-align: center;
 }
+
 
 
 #attribute-title {
   font-size: 20px;
   padding-bottom: 15px;
   text-align: start;
+  color: var(--orange);
 }
 
 .rounded-button {
@@ -81,7 +83,7 @@ body{
   justify-content: space-between;
   max-width: 100%;
   width: 30vw;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .health-progress-container::before,
@@ -144,8 +146,6 @@ body{
   border: 0;
   cursor: pointer;
   font-family: inherit;
-  /* padding: 8px 8px; */
-  padding-bottom: 35px;
   margin-bottom: 5px;
   font-size: 30px;
   border-radius: 0px;
@@ -164,4 +164,40 @@ body{
   cursor: not-allowed;
 }
 
+.y-center {
+  align-items: center;
+}
 
+
+#player {
+  max-height: 300px;
+}
+
+h4 {
+ font-weight: bold;
+ padding: 20px;
+}
+
+i {
+  color: white;
+}
+
+.definitions i{
+  margin-top: 30px;
+  color: var(--orange);
+}
+
+.definitions p {
+  font-size: 1.4vw;
+}
+
+.x-center {
+  justify-content: center;
+}
+
+
+@media screen and (min-width: 1007px) {
+  .definitions {
+    display: none;
+  }
+}

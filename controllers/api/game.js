@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     //and should send that game id back
     let code = generator.generate({length: 4,numbers: true,lowercase:false});
     try{
-    const newGame = await Game.create({"Game_id":code,"player1":null,"player2":null,"playing":"false","player1turn":"true"});
+    const newGame = await Game.create({"game_id":code,"player1":null,"player2":null,"playing":"false","player1turn":"true"});
     res.status(200).json(newGame);
     // res.render('create')
     }catch (err) {
