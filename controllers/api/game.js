@@ -9,9 +9,11 @@ router.get('/', async (req, res) => {
     //making a random game code for the game
     let code = generator.generate({length: 4,numbers: true,lowercase:false});
     try{
+
       //making a new row in the database
     const newGame = await Game.create({"game_id":code,"player1":null,"player2":null,"playing":"false","player1turn":"true"});
     //sending back a status 200 with the game info
+
     res.status(200).json(newGame);
     // res.render('create')
     }catch (err) {
