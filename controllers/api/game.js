@@ -2,13 +2,16 @@
 
 const router = require('express').Router();
 const Game = require('../../models/Gamemodel');
+var generator = require('generate-password');
+const random = require('random')
 
 //fetch for creating a game
 router.get('/', async (req, res) => {
     //here should create a new table for the game with a unique game id
     //and should send that game id back
+    let code = generator.generate({length: 4,numbers: true,lowercase:false});
     try{
-    const newGame = await Game.create({"player1":"","player2":"","playing":"false","player1turn":"true"});
+    const newGame = await Game.create({"Game_id":code,"player1":null,"player2":null,"playing":"false","player1turn":"true"});
     res.status(200).json(newGame);
     // res.render('create')
     }catch (err) {
@@ -23,12 +26,10 @@ router.get('/', async (req, res) => {
 
 //fetch for pulling the game info, to check status and join game
 router.get('/:gameId', async (req, res) => {
-  /*here should check all of the avalible tables for the game id
-  if it finds it tell the front end it is found
-  else tell the front end there was an error*/
   try{
     const gameData = await Game.findByPk(req.params.gameId);
     if(gameData){
+      
       res.status(200).json(gameData);
       return;
     }
@@ -39,10 +40,44 @@ router.get('/:gameId', async (req, res) => {
 });
 
 // function to do a move
-router.post('/action/:userAction', async (req, res) => {
+router.post('/action', async (req, res) => {
+  let info = req.body
+
+  const gameData = await Game.findByPk(info.gameId);
   
-
-
+  if(info.action == "attack"){
+    let opp;
+    let minAttack = 3- parseInt(info.dexterity)
+    let attack = random.int((min = info.attack-minAttack), (max =  parseInt(info.attack)+3))
+    
+    if(info.player == 1){
+      opp = gameData.player2
+      opp.health -= attack
+      Game.update({player2:opp},{where:{game_id:info.gameId}})
+    }
+    if(info.player == 2){
+      opp = gameData.player1
+      opp.health -= attack
+      Game.update({player1:opp},{where:{game_id:info.gameId}})
+    }
+    res.status(200).json(opp);
+  }
+  if(info.action == "heal"){
+    let player;
+    let healAb = parseInt(info.healing)
+    let heal = random.int((min = healAb -1), (max =  healAb + 1))
+    if(info.player == 1){
+      player = gameData.player1
+      player.health += heal
+      Game.update({player1:player},{where:{game_id:info.gameId}})
+    }
+    if(info.player == 2){
+      player = gameData.player2
+      player.health += heal
+      Game.update({player2:player},{where:{game_id:info.gameId}})
+    }
+    res.status(200).json(player);
+  }
 });
 
 module.exports = router;

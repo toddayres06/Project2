@@ -9,7 +9,9 @@ router.post('/:gameID/:player', async (req, res) => {
       return
     }
     if(req.params.player == 2){
-      await Game.update({player2:req.body},{where:{id:req.params.gameID}})
+
+      await Game.update({player2:req.body,playing:true},{where:{id:req.params.gameID}})
+
       res.status(200).json("2")
       return
     }

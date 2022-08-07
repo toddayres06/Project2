@@ -6,7 +6,7 @@ class Characters {
     this.dexterity = dexterity;
   }
    create(playerID) {
-    fetch(`/api/character/${playerID}`, {
+    fetch(`/api/character/2/${playerID}`, {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -319,10 +319,14 @@ const playerNum = url.substring(url.length-1)
 createCharacter.addEventListener('click', async () => {
   const currentCharacter = new Characters(currentHealth, currentStrength, currentAgility, currentLuck);
   currentCharacter.create(playerNum);
+
+  // console.log(currentCharacter);
+
   if(playerNum === '1') {
     document.location.assign('/waiting')
   } else {
     document.location.assign('/game')
   }
+
 })
 

@@ -11,6 +11,8 @@ const createGameHandler = async (event) => {
      alert(response.statusText)
    }
 
+
+
 }
 
 const joinGameHandler = async (event) => {
