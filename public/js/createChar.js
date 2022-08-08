@@ -1,8 +1,8 @@
 class Character{
   constructor(health, strength, medical, dexterity) {
-    this.health = health;
-    this.strength = strength;
-    this.medical = medical;
+    this.health = 18 + (parseInt(health *7));
+    this.strength = parseInt(strength) +3;
+    this.medical = parseInt(medical)+3;
     this.dexterity = dexterity;
   }
 
@@ -326,7 +326,6 @@ createCharacter.addEventListener('click', async () => {
   if(playerNum == '1') {
     // console.log(gameID)
     // console.log(currentCharacter);
-    alert("send p1")
     document.location.assign('/waiting')
   } else {
     // currentCharacter.create(playerNum, gameID);
