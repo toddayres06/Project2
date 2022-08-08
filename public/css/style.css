@@ -68,10 +68,19 @@ body{
   outline: none;
 }
 
-#action-prompt {
-  font-size: 2.0em;
+#oppTurn {
+  font-size: 2em;
   color: #FFB905;
   font-family: 'Press Start 2P', cursive;
+  padding-bottom: 20px;
+  display: none;
+}
+
+#action-prompt {
+  font-size: 2em;
+  color: #FFB905;
+  font-family: 'Press Start 2P', cursive;
+  padding-bottom: 20px;
 }
 
 #attack, #heavy-attack, #heal {
