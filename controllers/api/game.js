@@ -27,6 +27,16 @@ router.get('/:gameId', async (req, res) => {
     //using the params to find the game
     const gameData = await Game.findByPk(req.params.gameId);
     //if it finds the game, send back a status 200 with the game data
+    if(gameData.player1.health < 1){
+      let gameOver = {winner:2}
+      res.status(200).json(gameOver);
+      return
+    }
+    if(gameData.player2.health < 1){
+      let gameOver = {winner:1}
+      res.status(200).json(gameOver);
+      return
+    }
     if(gameData){
       res.status(200).json(gameData);
       return;
