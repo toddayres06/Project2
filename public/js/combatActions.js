@@ -1,12 +1,11 @@
 function action(action) {
   const playerActions = {action: 'attack', player: '1', gameId: 'FI3I'}
-  fetch(`/api/action/${action}`, {
+  fetch(`api/game/action`, {
     method: "Post",
     body: JSON.stringify(playerActions)
   })
     .then((response) => response.json())
     .then((json) => console.log(json));
-
 }
 
 
