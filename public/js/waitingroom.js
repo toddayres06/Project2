@@ -13,7 +13,7 @@ const getCurrentID = () => {
 
 getCurrentID();
 
-const pinger = setInterval(isPlaying, 1000);
+const pinger = setInterval(isPlaying, 2000);
 console.log("is connected")
 function isPlaying() {
   const options = { method: "GET" };

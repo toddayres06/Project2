@@ -43,7 +43,7 @@ router.get('/:gameId', async (req, res) => {
     }
     //else send a 404
     res.status(404).json("sorry no game has this id")
-  }catch{
+  }catch(err){
     res.status(500).json(err);
   }
 });
