@@ -1,14 +1,61 @@
-<div class="container">
-<h2 id="action-prompt"> It is your turn, what would you like to do? </h2>
-<h2 id="oppTurn">It's your opponent's turn, please wait</h2>
-<br>
+<div class="container-fluid opponent-health">
+  <div class="row x-center">
+    <div class="col-12-sm x-center">
+  {{!-- data-total is total health of character --}}
+      <div class="health-bar" data-total="35" data-value="35">
+        <div class="bar">
+            <div class="hit"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<button type="button" class="btn btn-primary btn-lg" id="attack"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M24.68 24.68c-3.535 3.537-5.85 9.779-5.85 16.264 0 4.39 1.123 8.6 2.905 12.003l23.41-7.803 7.802-23.409c-3.403-1.782-7.612-2.904-12.003-2.904-6.485 0-12.727 2.314-16.263 5.85zm17.133 40.545L84.49 105.82c2.94-4.483 5.96-8.317 9.486-11.843 3.526-3.525 7.36-6.546 11.843-9.486L65.226 41.814l-5.854 17.558zm64.892 41.48c-3.067 3.067-5.818 6.763-8.872 11.806l77.446 73.667c2.645-3.307 5.214-6.216 7.948-8.95 2.735-2.735 5.644-5.304 8.951-7.949l-73.667-77.446c-5.043 3.054-8.739 5.805-11.806 8.872zm88.941 88.94c-9.114 9.115-17.08 22.447-35.67 50.598l11.092 11.092c34.16-51.62 34.647-52.106 86.267-86.267l-11.092-11.092c-28.15 18.59-41.483 26.556-50.597 35.67zm24.042 24.043c-3.998 3.997-7.577 8.54-11.858 14.661l242.865 237.584 42.474 21.236-21.236-42.474L234.349 207.83c-6.12 4.281-10.664 7.86-14.661 11.858z"></path></svg>   ATTACK</button>
-
-<button type="button" class="btn btn-primary btn-lg" id="heavy-attack"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M414.666 22.572L19.91 114.15l251.8 266.028-59.66 59.69 282.602 53.44-53.41-282.75-31.545 31.563 36.826 84.86-79.253-87.507-80.643-79.217 41.025 80.377-135.38-114.785L414.667 22.572zM232.484 215.77c11.482 0 20.787 9.308 20.787 20.79 0 2.462-.43 4.824-1.215 7.016l35.55 34.21 33.06-30.81 12.74 13.672-17.374 16.19 138.286 133.64L473.236 471l-60.515-17.447-140.55-135.84-18.096 16.86-12.74-13.67 32.578-30.358-35.418-34.082c-1.903.574-3.92.887-6.01.887-11.48 0-20.787-9.31-20.787-20.79 0-11.482 9.306-20.79 20.787-20.79zm68.883 75.617l-12.963 13.463L426.96 438.256l12.964-13.463-138.557-133.406z"></path></svg>   SPECIAL ATTACK</button>
-
-<button type="button" class="btn btn-primary btn-lg" id="heal"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M192 17.65l16 34h96l16-34zm-9 53v51.95h32v22.2c-19.3-9-42.6-8.2-55-8.2-50.5 0-82.1 21.9-99.5 48-17.4 26.1-21.5 55.5-21.5 73 0 52.5 38.6 94.4 83.3 131C167 425.1 219 457.3 249.6 488l6.4 6.3 6.4-6.3c30.6-30.7 82.6-62.9 127.3-99.4 44.7-36.6 83.3-78.5 83.3-131 0-17.5-4.1-46.9-21.5-73s-49-48-99.5-48c-12.4 0-35.7-.8-55 8.2v-22.2h32V70.65zm18 18h110v15.95H201zm32 33.95h46v60.7l15.4-15.3c11.7-11.8 41.6-13.4 57.6-13.4 45.5 0 69.9 18.1 84.5 40 14.6 21.9 18.5 48.5 18.5 63 0 43.5-33.4 81.7-76.7 117-40.7 33.4-89 63.5-122.3 94.7-33.3-31.2-81.6-61.3-122.3-94.7-43.3-35.3-76.7-73.5-76.7-117 0-14.5 3.9-41.1 18.5-63s39-40 84.5-40c16 0 45.9 1.6 57.6 13.4l15.4 15.3zm-41 71c-64 0-80 48-80 80 0 64 80 96 144 144 64-48 144-80 144-144 0-32-16-80-80-80-32 0-48 0-64 48-16-48-32-48-64-48zm125.7 14.6c3.6-.1 5.9.3 5.8.6-16.5 7.3-33.9 24.4-44.6 41.7 0 0-3.2-17.7 9.9-31.9 7.4-8.1 21.1-10.3 28.9-10.4zM192 209.6c-24 21.5-41.3 58.2-47.2 90.4 0 0-19.5-23.7-7.7-53.4 9.8-24.5 50.1-36.5 54.9-37z"></path></svg>   HEAL</button>
+<div class="row x-center">
+  <img src="/assets/opponent.png"/>
 </div>
 
+  {{!-- <h2 id="action-prompt"> Your turn! </h2> --}}
+  <div class="row x-center">
+  <h2 id="oppTurn" style="display: block;">It's your opponent's turn, please wait.</h2>
+
+  </div>
+
+  <br>
+
+  {{!-- 
+  <button type="button" class="btn btn-primary btn-lg" id="attack">ATTACK</button>
+  <br>
+  <button type="button" class="btn btn-primary btn-lg" id="heavy-attack">HEAVY ATTACK</button>
+  <br>
+  <button type="button" class="btn btn-primary btn-lg" id="heal">HEAL</button> --}}
+
+
+
+
+
+
+
+<div class="container-fluid health-container">
+    <div class="row x-center">
+      <div class="health-bar your-health" data-total="35" data-value="35">
+        <div class="bar">
+            <div class="hit"></div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+<!-- some simple "code editor" where you can highlight lines of text/code one by one and edit the text. when you hold ctrl or something everything fades out a bit and you hover over lines to bring them to full opacity -->
+
+
+
+
+
+<script src="/js/healthbar.js"></script>
+<script src="/scripts/notMyTurn.js"></script>
+<script src="/scripts/myTurn.js"></script>
 <script src="/js/game.js"></script>
 

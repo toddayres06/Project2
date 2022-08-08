@@ -6,10 +6,13 @@
  --orange: #FFB905;
  --gray: #e0e0e0;
  --blue: #577FCE;
+ --red: #DC3545;
 }
 body{
-  font-family:'Muli', sans-serif;
+  position: fixed;
+  font-family: 'Press Start 2P', cursive;
   margin: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,13 +21,16 @@ body{
   background-color: var(--blue);
 }
 
+.container-fluid {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 .container {
   justify-content: center;
   font-weight: bold;
   text-align: center;
 }
-
-
 
 #attribute-title {
   font-size: 20px;
@@ -36,10 +42,13 @@ body{
 .rounded-button {
   border-radius: 20px;
   text-align: center;
+  justify-content: center;
   border: 0;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   margin: 30px 20px; 
   color: white;
+  width: 20vw;
+  height: 2.5em;
   background-color: var(--orange);
   font-size: 5vw;
 }
@@ -48,20 +57,19 @@ body{
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: solid;
-  border-width: 5px;
+  border-bottom: solid 5px var(--orange);
   margin: 0 auto;
   width: 50%;
   text-align: center;
-  font-size: 4vw;
+  font-size: 2vw;
   background-color: var(--blue);
-  color: var(--orange);
+  color: black;
   text-transform: uppercase;
 }
 
 #game-id::placeholder {
   color: var(--gray);
-  text-transform: capitalize
+  text-transform: capitalize;
 }
 
 #game-id:focus {
@@ -88,8 +96,7 @@ body{
   color:#e0e0e0;
   font-family: 'Press Start 2P', cursive;
   border-radius: 15px;
-
- width: 10em;
+  width: 10em;
   height: 4em 
 }
 
@@ -146,6 +153,7 @@ body{
 .medical-circle,
 .dexterity-circle
 {
+  font-family:'Muli', sans-serif;
   background-color: #e0e0e0;
   color: #e0e0e0;
   display: flex;
@@ -193,6 +201,14 @@ body{
   align-items: center;
 }
 
+h1{
+  color: var(--orange);
+  font-weight: 600;
+  font-size: 5vw;
+  margin-bottom: 3vh;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: .75vw .6vw 0px #000000;
+}
 
 #player {
   max-height: 300px;
@@ -213,13 +229,22 @@ i {
 }
 
 .definitions p {
-  font-size: 1.4vw;
+  font-size: .75vw;
 }
 
 .x-center {
   justify-content: center;
 }
 
+
+
+.y-end {
+  align-items: end;
+}
+
+.container {
+  margin: 15px;
+}
 
 #attribute {
   color: white;
@@ -231,8 +256,79 @@ i {
   margin-bottom: 10px;
 }
 
+#start-game {
+  font-size: 2vw;
+}
+
+#create-game,
+#join-game {
+  font-size: 2vw;
+  justify-content: center;;
+}
+
+#create-game:hover,
+#join-game:hover {
+  background-color: var(--red);
+}
+
+#create-game:active,
+#join-game:active {
+  transform: scale(102%);
+}
+
+
+
+.health-bar {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50vw;
+  height: 3vw;
+  padding: .25vw;
+  background: #ddd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.bar {
+  background: rgb(0, 255, 0);
+  width: 100%;
+  height: 2.5vw;
+  position: relative;
+  border-radius: 20px;
+  transition: width .5s linear;
+}
+
+
+
+.your-health {
+  margin-top: 3vw;
+}
+
+.hit {
+  background: rgba(255,0,0,0.8);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0px;
+  transition: width .5s linear;
+}
+
+.health-container {
+  background-color: var(--blue);
+  position: absolute;
+  margin-bottom: 0;
+  height: 8vw;
+  bottom: 0px;
+}
+
+
+/* 
 @media screen and (min-width: 1007px) {
   .definitions {
     display: none;
   }
-}
+} */
