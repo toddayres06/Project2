@@ -19,4 +19,8 @@ router.get('/game', (req, res) => {
   res.render('game');
 })
 
+router.get('/gameOver', (req, res) => {
+  res.render('end');
+})
+
 module.exports = router;
