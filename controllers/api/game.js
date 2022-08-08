@@ -42,25 +42,26 @@ router.get('/:gameId', async (req, res) => {
 router.post('/action', async (req, res) => {
   let info = req.body
   //player:1
-  // game_id:1234
+  // gameId:1234
   // action:attack
 
-  const gameData = await Game.findByPk(info.gameId);
-  
+  const gameData = await Game.findByPk(info.gameID);
+  let player = gameData.player1
+  if(info.player == 2){player = gameData.player2}
   if(info.action == "attack"){
     let opp;
-    let minAttack = 3- parseInt(info.dexterity)
-    let attack = random.int((min = info.attack-minAttack), (max =  parseInt(info.attack)+3))
+    
+    let attack = random.int((min = parseInt(player.strength)-3), (max =  parseInt(player.strength)+3))
     
     if(info.player == 1){
       opp = gameData.player2
       opp.health -= attack
-      Game.update({player2:opp},{where:{game_id:info.gameId}})
+      Game.update({player2:opp},{where:{game_id:info.gameID}})
     }
     if(info.player == 2){
       opp = gameData.player1
       opp.health -= attack
-      Game.update({player1:opp},{where:{game_id:info.gameId}})
+      Game.update({player1:opp},{where:{game_id:info.gameID}})
     }
     res.status(200).json(opp);
   }
