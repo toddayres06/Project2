@@ -1,3 +1,4 @@
+let firstLoad = true;
 // local storage variables
 const gameData = localStorage.getItem("gameData");
 const gameID = JSON.parse(gameData).game_id;
@@ -63,14 +64,35 @@ function action(action,playerNum,id) {
         return res.json();
     })
     .then(data => {
+        if(firstLoad){
+            let yourHealth = document.querySelector('.your-health')
+
+            let oppHealth = document.querySelector('.opp-health')
+            if(player == 1){
+                //should update player1 health
+                yourHealth.dataset.total = data.player1.health
+                yourHealth.dataset.value = data.player1.health
+
+                oppHealth.dataset.total = data.player2.health
+                oppHealth.dataset.value = data.player2.health
+            }
+            if(player == 2){
+                yourHealth.dataset.total = data.player2.health
+                yourHealth.dataset.value = data.player2.health
+
+                oppHealth.dataset.total = data.player1.health
+                oppHealth.dataset.value = data.player1.health
+            }
+            firstLoad = false
+        }
         if(data.winner){
             document.location.assign('/gameOver')
         }
         if(player == 1 && data.player1turn || player == 2 && !data.player1turn){
-            isTurn()
+            // isTurn()
         }
         else{
-            notTurn()
+            // notTurn()
         }
     })
     .catch(error => console.log(error))
@@ -116,19 +138,3 @@ function changeHealth(newHealth){
 }
 
 
-setTimeout(function(){
-    changeHealth(24)
-    console.log("health")
-  }, 1000); 
-  setTimeout(function(){
-    changeHealth(17)
-    console.log("health")
-  }, 2000); 
-  setTimeout(function(){
-    changeHealth(9)
-    console.log("health")
-  }, 3000); 
-  setTimeout(function(){
-    changeHealth(0)
-    console.log("health")
-  }, 4000); 
