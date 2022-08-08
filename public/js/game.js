@@ -123,18 +123,30 @@ function isTurn(){
 
 //code for adjusting health bar
 
-function changeHealth(newHealth){
-    let healthBar = document.querySelector('.your-health')
+function changeHealth(newHealth,who){
+    let healthBar;
+    if(who == "you"){
+        healthBar = document.querySelector('.your-health')
+    }else{healthBar = document.querySelector('.opp-health')}
     let total = healthBar.dataset.total
     let health = healthBar.dataset.value
 
-    let damage = health - newHealth
-    let damagePercent = damage/total
+    // let damage = health - newHealth
+    // let damagePercent = damage/total
 
     let barLength = (newHealth/total) * 100
-    document.querySelector('.your-bar').style.width = barLength + '%'
+    if(who == "you"){
+        document.querySelector('.your-bar').style.width = barLength + '%'
+    }else{document.querySelector('.opp-bar').style.width = barLength + '%'}
+    
 
     healthBar.dataset.value= newHealth
 }
 
+setTimeout(function(){
+    changeHealth(20,'you')
+},1000)
 
+setTimeout(function(){
+    changeHealth(20,'opp')
+},2000)
