@@ -9,8 +9,10 @@
  --red: #DC3545;
 }
 body{
-  font-family:'Muli', sans-serif;
+  position: fixed;
+  font-family: 'Press Start 2P', cursive;
   margin: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,6 +21,11 @@ body{
   background-color: var(--blue);
 }
 
+.container-fluid {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 .container {
   justify-content: center;
   font-weight: bold;
@@ -35,10 +42,13 @@ body{
 .rounded-button {
   border-radius: 20px;
   text-align: center;
+  justify-content: center;
   border: 0;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   margin: 30px 20px; 
   color: white;
+  width: 20vw;
+  height: 2.5em;
   background-color: var(--orange);
   font-size: 5vw;
 }
@@ -51,7 +61,7 @@ body{
   margin: 0 auto;
   width: 50%;
   text-align: center;
-  font-size: 4vw;
+  font-size: 2vw;
   background-color: var(--blue);
   color: black;
   text-transform: uppercase;
@@ -60,7 +70,6 @@ body{
 #game-id::placeholder {
   color: var(--gray);
   text-transform: capitalize;
-  text-shadow: 0 0 0 #000000;
 }
 
 #game-id:focus {
@@ -144,6 +153,7 @@ body{
 .medical-circle,
 .dexterity-circle
 {
+  font-family:'Muli', sans-serif;
   background-color: #e0e0e0;
   color: #e0e0e0;
   display: flex;
@@ -194,8 +204,10 @@ body{
 h1{
   color: var(--orange);
   font-weight: 600;
-  font-size: 8vw;
-  text-shadow: .55vw .5vw 0px #000000;
+  font-size: 5vw;
+  margin-bottom: 3vh;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: .75vw .6vw 0px #000000;
 }
 
 #player {
@@ -217,13 +229,22 @@ i {
 }
 
 .definitions p {
-  font-size: 1.4vw;
+  font-size: .75vw;
 }
 
 .x-center {
   justify-content: center;
 }
 
+
+
+.y-end {
+  align-items: end;
+}
+
+.container {
+  margin: 15px;
+}
 
 #attribute {
   color: white;
@@ -233,6 +254,16 @@ i {
   color: var(--orange);
   margin-top: 40px;
   margin-bottom: 10px;
+}
+
+#start-game {
+  font-size: 2vw;
+}
+
+#create-game,
+#join-game {
+  font-size: 2vw;
+  justify-content: center;;
 }
 
 #create-game:hover,
@@ -245,8 +276,59 @@ i {
   transform: scale(102%);
 }
 
+
+
+.health-bar {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50vw;
+  height: 3vw;
+  padding: .25vw;
+  background: #ddd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.bar {
+  background: rgb(0, 255, 0);
+  width: 100%;
+  height: 2.5vw;
+  position: relative;
+  border-radius: 20px;
+  transition: width .5s linear;
+}
+
+
+
+.your-health {
+  margin-top: 3vw;
+}
+
+.hit {
+  background: rgba(255,0,0,0.8);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0px;
+  transition: width .5s linear;
+}
+
+.health-container {
+  background-color: var(--blue);
+  position: absolute;
+  margin-bottom: 0;
+  height: 8vw;
+  bottom: 0px;
+}
+
+
+/* 
 @media screen and (min-width: 1007px) {
   .definitions {
     display: none;
   }
-}
+} */
