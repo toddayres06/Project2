@@ -38,3 +38,21 @@ function action(action,playerNum,id) {
       .then((response) => response.json())
       .then((json) => console.log(json));
   }
+
+const statusPing = setInterval(gameStatus,2000)
+
+  function gameStatus() {
+    fetch(`/api/game/${gameID}`)
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+        if(player == 1 && data.player1turn || player == 2 && !data.player1turn){
+            console.log("your turn")
+        }
+        else{console.log("not your turn")}
+    })
+    .catch(error => console.log(error))
+    
+} 
+
