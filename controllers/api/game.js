@@ -41,6 +41,9 @@ router.get('/:gameId', async (req, res) => {
 // function to do a move
 router.post('/action', async (req, res) => {
   let info = req.body
+  //player:1
+  // game_id:1234
+  // action:attack
 
   const gameData = await Game.findByPk(info.gameId);
   

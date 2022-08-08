@@ -1,10 +1,8 @@
-
-
 const attackHandler = function () {
     console.log('You attacked!')
 };
 
-const specialAttackHandler = function () {
+const heavyAttackHandler = function () {
     console.log('You did a special attack!')
 }
 
