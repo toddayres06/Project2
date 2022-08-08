@@ -221,6 +221,16 @@ i {
 }
 
 
+#attribute {
+  color: white;
+}
+
+#definitions svg {
+  color: var(--orange);
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
 @media screen and (min-width: 1007px) {
   .definitions {
     display: none;

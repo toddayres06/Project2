@@ -314,25 +314,25 @@ luckProgress.style.width = (actives.length - 1) / (luckCircles.length - 1) * 100
   console.log("current luck: ", currentLuck)
 }
 
-const url = window.location.href;
-const playerNum = url.substring(url.length-1)
+
 const gameData = localStorage.getItem("gameData");
 const gameID = JSON.parse(gameData).game_id;
+const playerNum = JSON.parse(gameData).player;
 
 
 createCharacter.addEventListener('click', async () => {
   const currentCharacter = new Character(currentHealth, currentStrength, currentAgility, currentLuck);
   currentCharacter.create();
-  console.log("working")
-  if(playerNum === '1') {
+  // console.log("working")
+  if(playerNum === 1) {
     // console.log(gameID)
     // console.log(currentCharacter);
-    // document.location.assign('/waiting')
+    document.location.assign('/waiting')
   } else {
     // currentCharacter.create(playerNum, gameID);
     // console.log(gameID)
     // console.log(currentCharacter);
-    // document.location.assign('/game')
+    document.location.assign('/game')
   }
 
 })
