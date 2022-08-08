@@ -327,12 +327,12 @@ createCharacter.addEventListener('click', async () => {
   if(playerNum === '1') {
     // console.log(gameID)
     // console.log(currentCharacter);
-    // document.location.assign('/waiting')
+    document.location.assign('/waiting')
   } else {
     // currentCharacter.create(playerNum, gameID);
     // console.log(gameID)
     // console.log(currentCharacter);
-    // document.location.assign('/game')
+    document.location.assign('/game')
   }
 
 })
