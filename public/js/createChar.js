@@ -323,7 +323,7 @@ const gameID = JSON.parse(gameData).game_id;
 createCharacter.addEventListener('click', async () => {
   const currentCharacter = new Character(currentHealth, currentStrength, currentAgility, currentLuck);
   currentCharacter.create();
-  console.log("working")
+  // console.log("working")
   if(playerNum === '1') {
     // console.log(gameID)
     // console.log(currentCharacter);
