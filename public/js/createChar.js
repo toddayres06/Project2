@@ -323,16 +323,16 @@ const gameID = JSON.parse(gameData).game_id;
 createCharacter.addEventListener('click', async () => {
   const currentCharacter = new Character(currentHealth, currentStrength, currentAgility, currentLuck);
   currentCharacter.create();
-  console.log("working")
+  // console.log("working")
   if(playerNum === '1') {
     // console.log(gameID)
     // console.log(currentCharacter);
-    // document.location.assign('/waiting')
+    document.location.assign('/waiting')
   } else {
     // currentCharacter.create(playerNum, gameID);
     // console.log(gameID)
     // console.log(currentCharacter);
-    // document.location.assign('/game')
+    document.location.assign('/game')
   }
 
 })
