@@ -65,17 +65,13 @@ router.post('/action', async (req, res) => {
     res.status(200).json(opp);
   }
   if(info.action == "heal"){
-    let player;
-    let healAb = parseInt(info.healing)
+    let healAb = parseInt(player.medical)
     let heal = random.int((min = healAb -1), (max =  healAb + 1))
+    player.health += heal;
     if(info.player == 1){
-      player = gameData.player1
-      player.health += heal
       Game.update({player1:player},{where:{game_id:info.gameID}})
     }
     if(info.player == 2){
-      player = gameData.player2
-      player.health += heal
       Game.update({player2:player},{where:{game_id:info.gameID}})
     }
     res.status(200).json(player);
