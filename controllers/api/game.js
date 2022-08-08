@@ -50,7 +50,6 @@ router.post('/action', async (req, res) => {
   if(info.player == 2){player = gameData.player2}
   if(info.action == "attack"){
     let opp;
-    
     let attack = random.int((min = parseInt(player.strength)-3), (max =  parseInt(player.strength)+3))
     
     if(info.player == 1){
@@ -72,12 +71,12 @@ router.post('/action', async (req, res) => {
     if(info.player == 1){
       player = gameData.player1
       player.health += heal
-      Game.update({player1:player},{where:{game_id:info.gameId}})
+      Game.update({player1:player},{where:{game_id:info.gameID}})
     }
     if(info.player == 2){
       player = gameData.player2
       player.health += heal
-      Game.update({player2:player},{where:{game_id:info.gameId}})
+      Game.update({player2:player},{where:{game_id:info.gameID}})
     }
     res.status(200).json(player);
   }

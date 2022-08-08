@@ -81,7 +81,7 @@ body{
   border-radius: 15px;
 
  width: 10em;
-  height: 4em */
+  height: 4em 
 }
 
 .attribute-controllers {
@@ -91,8 +91,8 @@ body{
 
 .health-progress-container,
 .strength-progress-container,
-.agility-progress-container,
-.luck-progress-container{
+.medical-progress-container,
+.dexterity-progress-container{
   position: relative;
   display: flex;
   align-items: center;
@@ -104,8 +104,8 @@ body{
 
 .health-progress-container::before,
 .strength-progress-container::before,
-.agility-progress-container::before,
-.luck-progress-container::before{
+.medical-progress-container::before,
+.dexterity-progress-container::before{
   content: '';
   position: absolute;
   background-color: var(--gray);
@@ -119,8 +119,8 @@ body{
 
 .health-progress,
 .strength-progress,
-.agility-progress,
-.luck-progress {
+.medical-progress,
+.dexterity-progress {
   position: absolute;
   background-color: var(--orange);
   top: 50%;
@@ -134,8 +134,8 @@ body{
 
 .health-circle,
 .strength-circle,
-.agility-circle,
-.luck-circle
+.medical-circle,
+.dexterity-circle
 {
   background-color: #e0e0e0;
   color: #e0e0e0;
@@ -150,8 +150,8 @@ body{
 
 .health-circle.health-active,
 .strength-circle.strength-active,
-.agility-circle.agility-active,
-.luck-circle.luck-active {
+.medical-circle.medical-active,
+.dexterity-circle.dexterity-active {
   border-color: var(--orange);
   background-color: #FFB905;
   color: white;
