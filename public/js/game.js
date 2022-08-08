@@ -58,6 +58,9 @@ const statusPing = setInterval(gameStatus,2000)
         return res.json();
     })
     .then(data => {
+        if(data.winner){
+            document.location.assign('/gameOver')
+        }
         if(player == 1 && data.player1turn || player == 2 && !data.player1turn){
             isTurn()
         }
