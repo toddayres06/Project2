@@ -64,29 +64,40 @@ function action(action,playerNum,id) {
         return res.json();
     })
     .then(data => {
-        if(firstLoad){
-            let yourHealth = document.querySelector('.your-health')
+        if(data.winner){
+            document.location.assign('/gameOver')
+            return
+        }
 
-            let oppHealth = document.querySelector('.opp-health')
-            if(player == 1){
-                //should update player1 health
+        if(player == 1){
+            if(firstLoad){
+                let yourHealth = document.querySelector('.your-health')
+                let oppHealth = document.querySelector('.opp-health')
+
                 yourHealth.dataset.total = data.player1.health
                 yourHealth.dataset.value = data.player1.health
 
                 oppHealth.dataset.total = data.player2.health
                 oppHealth.dataset.value = data.player2.health
+                firstLoad = false
             }
-            if(player == 2){
+            changeHealth(data.player1.health,'you')
+            changeHealth(data.player2.health,'opp')
+        }
+        if(player == 2){
+            if(firstLoad){
+                let yourHealth = document.querySelector('.your-health')
+                let oppHealth = document.querySelector('.opp-health')
+
                 yourHealth.dataset.total = data.player2.health
                 yourHealth.dataset.value = data.player2.health
 
                 oppHealth.dataset.total = data.player1.health
                 oppHealth.dataset.value = data.player1.health
+                firstLoad = false
             }
-            firstLoad = false
-        }
-        if(data.winner){
-            document.location.assign('/gameOver')
+            changeHealth(data.player2.health,'you')
+            changeHealth(data.player1.health,'opp')
         }
         if(player == 1 && data.player1turn || player == 2 && !data.player1turn){
             // isTurn()
@@ -143,10 +154,10 @@ function changeHealth(newHealth,who){
     healthBar.dataset.value= newHealth
 }
 
-setTimeout(function(){
-    changeHealth(20,'you')
-},1000)
+// setTimeout(function(){
+//     changeHealth(20,'you')
+// },1000)
 
-setTimeout(function(){
-    changeHealth(20,'opp')
-},2000)
+// setTimeout(function(){
+//     changeHealth(20,'opp')
+// },2000)
