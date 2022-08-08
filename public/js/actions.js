@@ -2,7 +2,8 @@ const gameData = localStorage.getItem("gameData");
 const gameID = JSON.parse(gameData).game_id;
 const player = JSON.parse(gameData).player;
 const attackHandler = function () {
-    action("attack",player,gameID)
+    // action("attack",player,gameID)
+    console.log(`gameID: ${gameID} and player: ${player}`)
 };
 
 const heavyAttackHandler = function () {
@@ -19,7 +20,7 @@ document
 
 document
 .querySelector('#special-attack')
-.addEventListener('click', specialAttackHandler)
+.addEventListener('click', heavyAttackHandler)
 
 document
 .querySelector('#heal')
