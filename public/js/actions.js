@@ -2,8 +2,7 @@ const gameData = localStorage.getItem("gameData");
 const gameID = JSON.parse(gameData).game_id;
 const player = JSON.parse(gameData).player;
 const attackHandler = function () {
-    // action("attack",player,gameID)
-    console.log(`gameID: ${gameID} and player: ${player}`)
+    action("attack",player,gameID)
 };
 
 const heavyAttackHandler = function () {
@@ -11,7 +10,7 @@ const heavyAttackHandler = function () {
 }
 
 const healHandler = function () {
-    console.log('You healed yourself!')
+    action("heal",player,gameID)
 }
 
 document
@@ -27,10 +26,14 @@ document
 .addEventListener('click', healHandler)
 
 function action(action,playerNum,id) {
-    const playerActions = {action: action, player: playerNum, gameId: id}
+    const playerActions = {action: action, player: playerNum, gameID: id}
+    console.log(playerActions)
     fetch(`/api/game/action/`, {
-      method: "Post",
-      body: JSON.stringify(playerActions)
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(playerActions),
     })
       .then((response) => response.json())
       .then((json) => console.log(json));
