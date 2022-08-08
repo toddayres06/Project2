@@ -10,14 +10,17 @@ var oppTurn = document.querySelector('#oppTurn')
 
 const attackHandler = function () {
     action("attack",player,gameID)
+    notTurn()
 };
 
 const heavyAttackHandler = function () {
     console.log('You did a special attack!')
+    notTurn()
 }
 
 const healHandler = function () {
     action("heal",player,gameID)
+    notTurn()
 }
 
 document
@@ -56,21 +59,29 @@ const statusPing = setInterval(gameStatus,2000)
     })
     .then(data => {
         if(player == 1 && data.player1turn || player == 2 && !data.player1turn){
-            actionPrompt.setAttribute ('style', 'display:block')
-            attackBtn.setAttribute ('style', 'display:inline')
-            heavyBtn.setAttribute ('style', 'display:inline')
-            healBtn.setAttribute ('style', 'display:inline')
-            oppTurn.setAttribute ('style', 'display:none')
+            isTurn()
         }
         else{
-            actionPrompt.setAttribute ('style', 'display:none')
-            attackBtn.setAttribute ('style', 'display:none')
-            heavyBtn.setAttribute ('style', 'display:none')
-            healBtn.setAttribute ('style', 'display:none')
-            oppTurn.setAttribute ('style', 'display:block')
+            notTurn()
         }
     })
     .catch(error => console.log(error))
     
 } 
+
+function notTurn(){
+    actionPrompt.setAttribute ('style', 'display:none')
+    attackBtn.setAttribute ('style', 'display:none')
+    heavyBtn.setAttribute ('style', 'display:none')
+    healBtn.setAttribute ('style', 'display:none')
+    oppTurn.setAttribute ('style', 'display:block')
+}
+
+function isTurn(){
+        actionPrompt.setAttribute ('style', 'display:block')
+        attackBtn.setAttribute ('style', 'display:inline')
+        heavyBtn.setAttribute ('style', 'display:inline')
+        healBtn.setAttribute ('style', 'display:inline')
+        oppTurn.setAttribute ('style', 'display:none')
+}
 
