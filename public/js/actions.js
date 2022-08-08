@@ -1,10 +1,21 @@
 
 
 const attackHandler = function () {
+    fetch('/api/game/action', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+            player: 1,
+            game_id: 123,
+            action: attack,
+        }),
+    });
     console.log('You attacked!')
 };
 
-const specialAttackHandler = function () {
+const heavyAttackHandler = function () {
     console.log('You did a special attack!')
 }
 
@@ -17,8 +28,8 @@ document
 .addEventListener('click', attackHandler)
 
 document
-.querySelector('#special-attack')
-.addEventListener('click', specialAttackHandler)
+.querySelector('#heavy-attack')
+.addEventListener('click', heavyAttackHandler)
 
 document
 .querySelector('#heal')
