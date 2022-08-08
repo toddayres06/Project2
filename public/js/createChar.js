@@ -1,8 +1,8 @@
 class Character{
-  constructor(health, strength, agility, dexterity) {
+  constructor(health, strength, medical, dexterity) {
     this.health = health;
     this.strength = strength;
-    this.agility = agility;
+    this.medical = medical;
     this.dexterity = dexterity;
   }
 
@@ -37,15 +37,15 @@ const strengthPrev = document.getElementById('strength-prev')
 const strengthNext = document.getElementById('strength-next')
 const strengthCircles = document.querySelectorAll('.strength-circle')
 
-const agilityProgress = document.getElementById('agility-progress')
-const agilityPrev = document.getElementById('agility-prev')
-const agilityNext = document.getElementById('agility-next')
-const agilityCircles = document.querySelectorAll('.agility-circle')
+const medicalProgress = document.getElementById('medical-progress')
+const medicalPrev = document.getElementById('medical-prev')
+const medicalNext = document.getElementById('medical-next')
+const medicalCircles = document.querySelectorAll('.medical-circle')
 
-const luckProgress = document.getElementById('luck-progress')
-const luckPrev = document.getElementById('luck-prev')
-const luckNext = document.getElementById('luck-next')
-const luckCircles = document.querySelectorAll('.luck-circle')
+const dexterityProgress = document.getElementById('dexterity-progress')
+const dexterityPrev = document.getElementById('dexterity-prev')
+const dexterityNext = document.getElementById('dexterity-next')
+const dexterityCircles = document.querySelectorAll('.dexterity-circle')
 
 const createCharacter = document.getElementById('start-game')
 const pointsContainer = document.querySelector('.remaining-points')
@@ -53,21 +53,21 @@ const pointsContainer = document.querySelector('.remaining-points')
 
 let currentHealth = 1;
 let currentStrength = 1;
-let currentAgility = 1;
-let currentLuck = 1;
+let currentmedical = 1;
+let currentdexterity = 1;
 let totalPoints = 4;
 
 
 const atMaxPoints = () => {
-  totalPoints = currentHealth + currentStrength + currentAgility + currentLuck;
+  totalPoints = currentHealth + currentStrength + currentmedical + currentdexterity;
   if (totalPoints >= 10 ){
-    luckNext.disabled = true;
-    agilityNext.disabled = true;
+    dexterityNext.disabled = true;
+    medicalNext.disabled = true;
     strengthNext.disabled = true;
     healthNext.disabled = true;
   } else {
-    luckNext.disabled = false;
-    agilityNext.disabled = false;
+    dexterityNext.disabled = false;
+    medicalNext.disabled = false;
     strengthNext.disabled = false;
     healthNext.disabled = false;
   }
@@ -197,123 +197,122 @@ strengthProgress.style.width = (actives.length - 1) / (strengthCircles.length - 
 }
 
 
-agilityNext.addEventListener('click', () => {
-  increaseAgilityStat()
-  updateAgility()
+medicalNext.addEventListener('click', () => {
+  increasemedicalStat()
+  updatemedical()
   atMaxPoints()
   showPoints(totalPoints);
 })
 
-agilityPrev.addEventListener('click', () => {
-  decreaseAgilityStat()
-  updateAgility()
+medicalPrev.addEventListener('click', () => {
+  decreasemedicalStat()
+  updatemedical()
   atMaxPoints()
   showPoints(totalPoints);
 })
 
-// function to decrease Agility stat
-const decreaseAgilityStat = () => {
-  currentAgility--
+// function to decrease medical stat
+const decreasemedicalStat = () => {
+  currentmedical--
 
-  if(currentAgility < 1){
-    currentAgility = 1
+  if(currentmedical < 1){
+    currentmedical = 1
   }
 }
 
-// function to increase Agility stat
-const increaseAgilityStat = () => {
-  currentAgility++
-  if(currentAgility > agilityCircles.length){
-    currentAgility = agilityCircles.length
+// function to increase medical stat
+const increasemedicalStat = () => {
+  currentmedical++
+  if(currentmedical > medicalCircles.length){
+    currentmedical = medicalCircles.length
   }
 }
 
 
 // update health to the current stat level;
-const updateAgility = () => {
-  agilityCircles.forEach((circle, idx) => {
-    if (idx < currentAgility) {
-      circle.classList.add('agility-active')
+const updatemedical = () => {
+  medicalCircles.forEach((circle, idx) => {
+    if (idx < currentmedical) {
+      circle.classList.add('medical-active')
     }else{
-      circle.classList.remove('agility-active')
+      circle.classList.remove('medical-active')
     }
   })
 
-const actives = document.querySelectorAll('.agility-active')
+const actives = document.querySelectorAll('.medical-active')
 
-agilityProgress.style.width = (actives.length - 1) / (agilityCircles.length - 1) * 100 + '%';
+medicalProgress.style.width = (actives.length - 1) / (medicalCircles.length - 1) * 100 + '%';
 
 //button functionality
-  if(currentAgility === 1){
-    agilityPrev.disabled = true
-  }else if (currentAgility === agilityCircles.length) {
-    agilityNext.disabled = true
+  if(currentmedical === 1){
+    medicalPrev.disabled = true
+  }else if (currentmedical === medicalCircles.length) {
+    medicalNext.disabled = true
   }else{
-    agilityPrev.disabled = false
-    agilityNext.disabled = false
+    medicalPrev.disabled = false
+    medicalNext.disabled = false
   }
-  console.log("current agility: ", currentAgility)
+  console.log("current medical: ", currentmedical)
 }
 
 
-luckNext.addEventListener('click', () => {
-  increaseLuckStat()
-  updateLuck()
+dexterityNext.addEventListener('click', () => {
+  increasedexterityStat()
+  updatedexterity()
   atMaxPoints()
   showPoints(totalPoints);
 })
 
-luckPrev.addEventListener('click', () => {
-  decreaseLuckStat()
-  updateLuck()
+dexterityPrev.addEventListener('click', () => {
+  decreasedexterityStat()
+  updatedexterity()
   atMaxPoints()
   showPoints(totalPoints);
 })
 
-// function to decrease luck stat
-const decreaseLuckStat = () => {
-  currentLuck--
+// function to decrease dexterity stat
+const decreasedexterityStat = () => {
+  currentdexterity--
 
-  if(currentLuck < 1){
-    currentLuck = 1
+  if(currentdexterity < 1){
+    currentdexterity = 1
   }
 }
 
-// function to increase luck stat
-const increaseLuckStat = () => {
-  currentLuck++
-  if(currentLuck > luckCircles.length){
-    currentLuck = luckCircles.length
+// function to increase dexterity stat
+const increasedexterityStat = () => {
+  currentdexterity++
+  if(currentdexterity > dexterityCircles.length){
+    currentdexterity = dexterityCircles.length
   }
 }
 
 
-// update luck to the current stat level;
-const updateLuck = () => {
-  luckCircles.forEach((circle, idx) => {
-    if (idx < currentLuck) {
-      circle.classList.add('luck-active')
+// update dexterity to the current stat level;
+const updatedexterity = () => {
+  dexterityCircles.forEach((circle, idx) => {
+    if (idx < currentdexterity) {
+      circle.classList.add('dexterity-active')
     }else{
-      circle.classList.remove('luck-active')
+      circle.classList.remove('dexterity-active')
     }
   })
 
-const actives = document.querySelectorAll('.luck-active')
+const actives = document.querySelectorAll('.dexterity-active')
 
-luckProgress.style.width = (actives.length - 1) / (luckCircles.length - 1) * 100 + '%';
+dexterityProgress.style.width = (actives.length - 1) / (dexterityCircles.length - 1) * 100 + '%';
 
 //button functionality
-  if(currentLuck === 1){
-    luckPrev.disabled = true
-  }else if (currentLuck === luckCircles.length) {
-    luckNext.disabled = true
+  if(currentdexterity === 1){
+    dexterityPrev.disabled = true
+  }else if (currentdexterity === dexterityCircles.length) {
+    dexterityNext.disabled = true
   }else{
-    luckPrev.disabled = false
-    luckNext.disabled = false
+    dexterityPrev.disabled = false
+    dexterityNext.disabled = false
   }
-  console.log("current luck: ", currentLuck)
+  console.log("current dexterity: ", currentdexterity)
 }
-
 
 const gameData = localStorage.getItem("gameData");
 const gameID = JSON.parse(gameData).game_id;
@@ -321,12 +320,13 @@ const playerNum = JSON.parse(gameData).player;
 
 
 createCharacter.addEventListener('click', async () => {
-  const currentCharacter = new Character(currentHealth, currentStrength, currentAgility, currentLuck);
+  const currentCharacter = new Character(currentHealth, currentStrength, currentmedical, currentdexterity);
   currentCharacter.create();
   // console.log("working")
-  if(playerNum === 1) {
+  if(playerNum == '1') {
     // console.log(gameID)
     // console.log(currentCharacter);
+    alert("send p1")
     document.location.assign('/waiting')
   } else {
     // currentCharacter.create(playerNum, gameID);

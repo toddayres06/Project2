@@ -12,8 +12,7 @@ class character{
     this.dexterity = dexterity;
   }
 
-  create() {
-  //  console.log(this);
+  create(){
   const gameData = localStorage.getItem("gameData");
   const gameID = JSON.parse(gameData).game_id;
   const player = JSON.parse(gameData).player;
