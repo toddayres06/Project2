@@ -18,7 +18,7 @@ console.log("is connected")
 function isPlaying() {
   const options = { method: "GET" };
 
-  fetch(`http://localhost:3001/api/game/${gameId}`, options)
+  fetch(`/api/game/${gameId}`, options)
     .then((response) => response.json())
     .then((response) => {
       console.log(response)
