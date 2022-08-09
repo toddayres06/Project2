@@ -81,6 +81,11 @@ body{
   top: 0;
 }
 
+.opponent-health p,
+.user-health p {
+  font-size: 1.5vw;
+}
+
 #oppTurn {
   font-size: 2em;
   color: #FFB905;
@@ -101,8 +106,9 @@ body{
   color:#e0e0e0;
   font-family: 'Press Start 2P', cursive;
   border-radius: 15px;
-  width: 10em;
-  height: 4em 
+  width: 15vw;
+  height: 5.8vw;
+  font-size: 1.5vw;
 }
 
 
@@ -317,7 +323,7 @@ i {
 }
 
 .knights img {
-  height: 20em;
+  height: 20vw;
   margin: 1em;
 }
 
@@ -327,14 +333,14 @@ i {
 }
 
 
-
 .health-container {
   bottom: 0px;
 }
 
 .action-button {
   display: block;
-  position: absolute;
+  margin: -2em 1.5em .5em 1.5em;
+  /* position: absolute; */
 }
 
 
