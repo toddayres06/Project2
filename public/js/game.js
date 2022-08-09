@@ -19,7 +19,7 @@ const attackHandler = function () {
 };
 
 const heavyAttackHandler = function () {
-    console.log('You did a special attack!')
+    action("heavy",player,gameID)
     notTurn()
 }
 
