@@ -19,23 +19,39 @@ body{
   min-height: 100vh;
   overflow: hidden;
   background-color: var(--blue);
+  background-image:url("../assets/gameboy-border.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%; 
+}
+html{
+  height: 100%;
 }
 
-h1 {
+.container-fluid {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+}
+
+#attribute-title {
+  font-size: 20px;
+  padding-bottom: 15px;
+  text-align: start;
   color: var(--orange);
-  font-weight: 600;
-  font-size: 5vw;
-  margin-bottom: 3vh;
-  font-family: 'Press Start 2P', cursive;
-  text-shadow: .75vw .6vw 0px #000000;
 }
 
-h4 {
- font-weight: bold;
- padding: 20px;
-}
-
-i{
+.rounded-button {
+  border-radius: 20px;
+  text-align: center;
+  justify-content: center;
+  border: 0;
+  /* padding: 10px 20px; */
+  margin: 30px 20px; 
   color: white;
 }
 

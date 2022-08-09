@@ -25,7 +25,10 @@ const attackHandler = function () {
 };
 
 const heavyAttackHandler = function () {
-    action("heavy-attack",player,gameID)
+
+    action("heavy",player,gameID)
+
+
     notTurn()
 }
 
