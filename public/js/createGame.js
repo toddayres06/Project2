@@ -16,7 +16,7 @@ const createGameHandler = async (event) => {
 const joinGameHandler = async (event) => {
   event.preventDefault(); 
   const gameID = document.querySelector('#game-id').value.trim().toUpperCase();
-  
+  console.log(gameID)
   if (gameID) {
     const response = await fetch(`/api/game/${gameID}`, {
       method: 'GET',
