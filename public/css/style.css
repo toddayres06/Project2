@@ -20,11 +20,27 @@ body{
   overflow: hidden;
   background-color: var(--blue);
   background-image:url("../assets/gameboy-border.png");
+  /* border-image-source: url("/assets/gameboy-border.png") 20%; */
   background-repeat: no-repeat;
   background-size: 100% 100%; 
+  z-index: 0;
 }
+
 html{
   height: 100%;
+}
+
+#screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2
+}
+
+h1 {
+  color: var(--orange);
+  font-size: 4.3vw;
+  text-shadow: .6vw .5vw 0 black;
 }
 
 .container-fluid {
@@ -53,6 +69,7 @@ html{
   /* padding: 10px 20px; */
   margin: 30px 20px; 
   color: white;
+  z-index: 9999;
 }
 
 .definitions i{
@@ -111,6 +128,7 @@ html{
 .action-button {
   display: block;
   margin: -2em 1.5em .5em 1.5em;
+  z-index: 9999;
 }
 
 .attribute-controllers {
@@ -234,6 +252,7 @@ html{
   height: 2.5em;
   background-color: var(--orange);
   font-size: 5vw;
+  z-index: 9999;
 }
 
 .opponent-health {
@@ -279,14 +298,6 @@ html{
 #player {
   max-height: 300px;
 }
-
-#attribute-title {
-  font-size: 20px;
-  padding-bottom: 15px;
-  text-align: start;
-  color: var(--orange);
-}
-
 
 #game-id {
   border-top: none;
@@ -364,12 +375,12 @@ html{
 
 @keyframes losing-knight {
   0%   {right: 0px;}
-  100%  {right: 1000px;}
+  100%  {right: 500px;}
 }
 
 @keyframes winning-knight {
   0%   {left: 0px;}
-  100%  {left: 1000px;}
+  100%  {left: 200px;}
 }
 
 /* The element to apply the animation to */
@@ -377,7 +388,7 @@ html{
   right: 0px;
   position: relative;
   animation-name: losing-knight;
-  animation-duration: 15s;
+  animation-duration: 10s;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
@@ -387,10 +398,11 @@ html{
   position: relative;
   animation-name: winning-knight;
   animation-duration: 15s;
+  z-index: -1;
 }
 
 @keyframes walk-in {
-  0%   {left: -1000px;}
+  0%   {left: -300px;}
   100%  {left: 0px;}
 }
 
@@ -399,4 +411,11 @@ html{
   position: relative;
   animation-name: walk-in;
   animation-duration: 5s;
+  z-index: -2;
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    background-image: none;
+  }
 }
