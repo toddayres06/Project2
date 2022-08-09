@@ -30,12 +30,22 @@ router.get('/:gameId', async (req, res) => {
     if(gameData.player1.health < 1){
       let gameOver = {winner:2}
       res.status(200).json(gameOver);
+      Game.destroy({
+        where: {
+          game_id: req.params.gameId,
+        }
+      })
       return;
     }
     if(gameData.player2){
       if(gameData.player2.health < 1){
         let gameOver = {winner:1}
         res.status(200).json(gameOver);
+        Game.destroy({
+          where: {
+            game_id: req.params.gameId,
+          }
+        })
         return
       }
     }

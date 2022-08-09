@@ -8,22 +8,19 @@ homeButton.addEventListener('click', (event) => {
 });
 
 const endGame = () => {
+    const winner = localStorage.getItem("winner");
     const gameData = localStorage.getItem("gameData");
     const gameID = JSON.parse(gameData).game_id;
     const player = JSON.parse(gameData).player;
-    fetch(`/api/game/${gameID}`)
-    .then(res => {
-        return res.json();
-    })
-    .then(data => {
-    if (data.winner != player) {
-        winResult.setAttribute("style", "display: none;");
-        lossResult.setAttribute("style", "display: block;");
-    } else {
+
+    if(player == winner){
         winResult.setAttribute("style", "display: block;");
         lossResult.setAttribute("style", "display: none;");
+    }else{
+        winResult.setAttribute("style", "display: none;");
+        lossResult.setAttribute("style", "display: block;");
     }
-    })
+
 }
 
 
