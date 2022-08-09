@@ -374,21 +374,21 @@ h1 {
 }
 
 @keyframes losing-knight {
-  0%   {right: -500px;}
-  100%  {right: 0px;}
+  0%   {left: 0px;}
+  100%  {left: -550px;}
 }
 
 @keyframes winning-knight {
-  0%   {left: -200px;}
-  100%  {left: 0px;}
+  0%   {right: 0px;}
+  100%  {right: -200px;}
 }
 
 /* The element to apply the animation to */
 #losing-knight {
-  right: 500px;
+  right: 550px;
   position: relative;
   animation-name: losing-knight;
-  animation-duration: 10s;
+  animation-duration: 3s;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
