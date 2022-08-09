@@ -19,8 +19,13 @@ body{
   min-height: 100vh;
   overflow: hidden;
   background-color: var(--blue);
+  background-image:url("../assets/gameboy-border.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%; 
 }
-
+html {
+  height: 100%
+}
 .container-fluid {
   width: 100%;
   margin: 0;
