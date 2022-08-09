@@ -76,6 +76,11 @@ body{
   outline: none;
 }
 
+.opponent-health {
+  margin-bottom: 10em;
+  top: 0;
+}
+
 #oppTurn {
   font-size: 2em;
   color: #FFB905;
@@ -99,6 +104,7 @@ body{
   width: 10em;
   height: 4em 
 }
+
 
 #home {
   background-color: #FFB905;
@@ -301,7 +307,7 @@ i {
   position: relative;
 }
 
-.bar {
+.opp-bar, .your-bar {
   background: rgb(0, 255, 0);
   width: 100%;
   height: 2.5vw;
@@ -310,28 +316,25 @@ i {
   transition: width .5s linear;
 }
 
+.knights img {
+  height: 20em;
+  margin: 1em;
+}
 
 
 .your-health {
   margin-top: 3vw;
 }
 
-.hit {
-  background: rgba(255,0,0,0.8);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 0px;
-  transition: width .5s linear;
-}
+
 
 .health-container {
-  background-color: var(--blue);
-  position: absolute;
-  margin-bottom: 0;
-  height: 8vw;
   bottom: 0px;
+}
+
+.action-button {
+  display: block;
+  position: absolute;
 }
 
 

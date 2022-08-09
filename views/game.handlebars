@@ -1,7 +1,9 @@
-<div class="container-fluid opponent-health">
-  <div class="row x-center">
+<div class="container-fluid">
+
+  <div class="row x-center opponent-health">
     <div class="col-12-sm x-center">
-  {{!-- data-total is total health of character --}}
+
+      <p>opponent health:</p>
       <div class="health-bar" data-total="35" data-value="35">
         <div class="bar">
             <div class="hit"></div>
@@ -10,41 +12,39 @@
     </div>
   </div>
 
-<div class="row x-center">
-  <img src="/assets/opponent.png"/>
-</div>
 
-  {{!-- <h2 id="action-prompt"> Your turn! </h2> --}}
+ 
   <div class="row x-center">
-  <h2 id="oppTurn" style="display: block;">It's your opponent's turn, please wait.</h2>
-
+    <h2 id="oppTurn">It's your opponent's turn, please wait.</h2>
+    <h2 id="action-prompt"> Your turn! </h2>
   </div>
 
+  <div class="row x-center knights">
+    <img src="/assets/UserKnight.png"/>
+    <img src="/assets/OpponentKnight.png"/>
+  </div>
+
+  <button type="button" class="btn btn-primary btn-lg action-button" id="attack">ATTACK</button>
   <br>
-
-  {{!-- 
-  <button type="button" class="btn btn-primary btn-lg" id="attack">ATTACK</button>
+  <button type="button" class="btn btn-primary btn-lg action-button" id="heavy-attack">HEAVY ATTACK</button>
   <br>
-  <button type="button" class="btn btn-primary btn-lg" id="heavy-attack">HEAVY ATTACK</button>
-  <br>
-  <button type="button" class="btn btn-primary btn-lg" id="heal">HEAL</button> --}}
+  <button type="button" class="btn btn-primary btn-lg action-button" id="heal">HEAL</button>
 
 
 
 
-
-
-
-<div class="container-fluid health-container">
-    <div class="row x-center">
-      <div class="health-bar your-health" data-total="35" data-value="35">
+  <div class="row x-center user-health">
+    <div class="col-12-sm x-center">
+      <p>your health:</p>
+      <div class="health-bar" data-total="35" data-value="35">
         <div class="bar">
             <div class="hit"></div>
         </div>
       </div>
     </div>
-</div>
+  </div>
 
+</div>
 
 
 
@@ -55,7 +55,6 @@
 
 
 <script src="/js/healthbar.js"></script>
-<script src="/scripts/notMyTurn.js"></script>
-<script src="/scripts/myTurn.js"></script>
+
 <script src="/js/game.js"></script>
 
