@@ -27,6 +27,12 @@ html{
   height: 100%;
 }
 
+h1 {
+  color: var(--orange);
+  font-size: 4.3vw;
+  text-shadow: .6vw .5vw 0 black;
+}
+
 .container-fluid {
   width: 100%;
   margin: 0;
@@ -280,14 +286,6 @@ html{
   max-height: 300px;
 }
 
-#attribute-title {
-  font-size: 20px;
-  padding-bottom: 15px;
-  text-align: start;
-  color: var(--orange);
-}
-
-
 #game-id {
   border-top: none;
   border-left: none;
@@ -387,6 +385,7 @@ html{
   position: relative;
   animation-name: winning-knight;
   animation-duration: 15s;
+  z-index: -1;
 }
 
 @keyframes walk-in {
@@ -399,4 +398,11 @@ html{
   position: relative;
   animation-name: walk-in;
   animation-duration: 5s;
+  z-index: -1;
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    background-image: none;
+  }
 }
