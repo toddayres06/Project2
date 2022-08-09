@@ -75,9 +75,12 @@ function action(action,playerNum,id) {
     })
     .then(data => {
         if(data.winner){
-            notTurn();
+            if(player == data.winner){
+                changeHealth(0,'opp')
+            }else{
+                changeHealth(0,'you')
+            }
             setTimeout(() => {document.location.assign('/gameOver')}, 1000);
-            // document.location.assign('/gameOver')
             return;
         }
         // console.log(data)
