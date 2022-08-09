@@ -110,7 +110,11 @@ body{
   height: 5.8vw;
   font-size: 1.5vw;
 }
-
+#attack:hover, 
+#heavy-attack:hover, 
+#heal:hover {
+  background-color: var(--red);
+}
 
 #home {
   background-color: #FFB905;
