@@ -74,6 +74,12 @@ router.post('/action', async (req, res) => {
       console.log((7 + player.dexterity))
       if(miss >(7 + player.dexterity)){
         res.status(200).json("miss");
+        if(info.player == 1){
+          Game.update({player1turn:false},{where:{game_id:info.gameID}})
+        }
+        if(info.player == 2){
+          Game.update({player1turn:true},{where:{game_id:info.gameID}})
+        }
         return
       }
     }
