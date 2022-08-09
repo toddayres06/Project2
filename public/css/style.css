@@ -347,17 +347,16 @@ i{
   font-size: 2em;
 }
 
-/* The animation code */
-@keyframes user-attack {
-  0%   {left: 0px;}
-  50%  {left: 30px;}
-  100% {left: 0px;}
+@keyframes opponent-attack {
+  0%   {right: 0px;}
+  50%  {right: 400px;}
+  100% {right: 0px;}
 }
 
 /* The element to apply the animation to */
-#user-knight {
-  left: 0px;
+#opponent-knight {
+  right: 0px;
   position: relative;
-  animation-name: user-attack;
+  animation-name: opponent-attack;
   animation-duration: 4s;
 }

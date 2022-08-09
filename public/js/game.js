@@ -66,8 +66,10 @@ function action(action,playerNum,id) {
     })
     .then(data => {
         if(data.winner){
-            document.location.assign('/gameOver')
-            return
+            notTurn();
+            setTimeout(() => {document.location.assign('/gameOver')}, 1000);
+            // document.location.assign('/gameOver')
+            return;
         }
         // console.log(data)
         if(player == 1){

@@ -8,8 +8,9 @@ homeButton.addEventListener('click', (event) => {
 const endGame = async () => {
     const gameData = localStorage.getItem("gameData");
     const gameID = JSON.parse(gameData).game_id;
+    const player = JSON.parse(gameData).player;
     const result = await fetch(`/api/game/${gameID}`);
-    console.log(result.JSON());
-  }
+    console.log(result.json());
+}
   
 endGame();  
