@@ -21,108 +21,80 @@ body{
   background-color: var(--blue);
 }
 
-.container-fluid {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-.container {
-  justify-content: center;
-  font-weight: bold;
-  text-align: center;
+h1 {
+  color: var(--orange);
+  font-weight: 600;
+  font-size: 5vw;
+  margin-bottom: 3vh;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: .75vw .6vw 0px #000000;
 }
 
-#attribute-title {
-  font-size: 20px;
-  padding-bottom: 15px;
-  text-align: start;
+h4 {
+ font-weight: bold;
+ padding: 20px;
+}
+
+i{
+  color: white;
+}
+
+.definitions i{
+  margin-top: 30px;
   color: var(--orange);
 }
 
-.rounded-button {
-  border-radius: 20px;
-  text-align: center;
+.definitions p {
+  font-size: .75vw;
+}
+
+.x-center {
   justify-content: center;
-  border: 0;
-  /* padding: 10px 20px; */
-  margin: 30px 20px; 
-  color: white;
-  width: 20vw;
-  height: 2.5em;
-  background-color: var(--orange);
-  font-size: 5vw;
 }
 
-#game-id {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: solid 5px var(--orange);
-  margin: 0 auto;
-  width: 50%;
-  text-align: center;
-  font-size: 2vw;
-  background-color: var(--blue);
-  color: black;
-  text-transform: uppercase;
+.y-end {
+  align-items: end;
 }
 
-#game-id::placeholder {
-  color: var(--gray);
-  text-transform: capitalize;
+.container {
+  margin: 15px;
 }
 
-#game-id:focus {
-  outline: none;
+.health-bar {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50vw;
+  height: 3vw;
+  padding: .25vw;
+  background: #ddd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 20px;
+  position: relative;
 }
 
-.opponent-health {
-  margin-bottom: 10em;
-  top: 0;
+.opp-bar, .your-bar {
+  background: rgb(0, 255, 0);
+  width: 100%;
+  height: 2.5vw;
+  position: relative;
+  border-radius: 20px;
+  transition: width .5s linear;
 }
 
-.opponent-health p,
-.user-health p {
-  font-size: 1.5vw;
+.knights img {
+  height: 20vw;
+  margin: 1em;
 }
 
-#oppTurn {
-  font-size: 2em;
-  color: #FFB905;
-  font-family: 'Press Start 2P', cursive;
-  padding-bottom: 20px;
-  display: none;
+.health-container {
+  bottom: 0px;
 }
 
-#action-prompt {
-  font-size: 2em;
-  color: #FFB905;
-  font-family: 'Press Start 2P', cursive;
-  padding-bottom: 20px;
-}
-
-#attack, #heavy-attack, #heal {
-  background-color: #FFB905;
-  color:#e0e0e0;
-  font-family: 'Press Start 2P', cursive;
-  border-radius: 15px;
-  width: 15vw;
-  height: 5.8vw;
-  font-size: 1.5vw;
-}
-#attack:hover, 
-#heavy-attack:hover, 
-#heal:hover {
-  background-color: var(--red);
-}
-
-#home {
-  background-color: #FFB905;
-}
-
-#result {
-  color: #FFB905;
-  padding-bottom: 1.0em;
+.action-button {
+  display: block;
+  margin: -2em 1.5em .5em 1.5em;
 }
 
 .attribute-controllers {
@@ -218,7 +190,6 @@ body{
   outline: 0;
 }
 .btn:disabled{
-  /* background-color: var(--gray); */
   cursor: not-allowed;
 }
 
@@ -226,49 +197,38 @@ body{
   align-items: center;
 }
 
-h1{
-  color: var(--orange);
-  font-weight: 600;
-  font-size: 5vw;
-  margin-bottom: 3vh;
-  font-family: 'Press Start 2P', cursive;
-  text-shadow: .75vw .6vw 0px #000000;
+.container-fluid {
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
-
-#player {
-  max-height: 300px;
-}
-
-h4 {
- font-weight: bold;
- padding: 20px;
-}
-
-i {
-  color: white;
-}
-
-.definitions i{
-  margin-top: 30px;
-  color: var(--orange);
-}
-
-.definitions p {
-  font-size: .75vw;
-}
-
-.x-center {
-  justify-content: center;
-}
-
-
-
-.y-end {
-  align-items: end;
-}
-
 .container {
-  margin: 15px;
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+}
+
+.rounded-button {
+  border-radius: 20px;
+  text-align: center;
+  justify-content: center;
+  border: 0;
+  margin: 30px 20px; 
+  color: white;
+  width: 20vw;
+  height: 2.5em;
+  background-color: var(--orange);
+  font-size: 5vw;
+}
+
+.opponent-health {
+  margin-bottom: 10em;
+  top: 0;
+}
+
+.opponent-health p,
+.user-health p {
+  font-size: 1.5vw;
 }
 
 #attribute {
@@ -301,56 +261,88 @@ i {
   transform: scale(102%);
 }
 
+#player {
+  max-height: 300px;
+}
+
+#attribute-title {
+  font-size: 20px;
+  padding-bottom: 15px;
+  text-align: start;
+  color: var(--orange);
+}
 
 
-.health-bar {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 50vw;
-  height: 3vw;
-  padding: .25vw;
-  background: #ddd;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+#game-id {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 5px var(--orange);
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  font-size: 2vw;
+  background-color: var(--blue);
+  color: black;
+  text-transform: uppercase;
+}
+
+#game-id::placeholder {
+  color: var(--gray);
+  text-transform: capitalize;
+}
+
+#game-id:focus {
+  outline: none;
+}
+#oppTurn {
+  font-size: 2em;
+  color: #FFB905;
+  font-family: 'Press Start 2P', cursive;
+  padding-bottom: 20px;
+  display: none;
+}
+
+#action-prompt {
+  font-size: 2em;
+  color: #FFB905;
+  font-family: 'Press Start 2P', cursive;
+  padding-bottom: 20px;
+}
+
+#attack, #heavy-attack, #heal {
+  background-color: #FFB905;
+  color:#e0e0e0;
+  font-family: 'Press Start 2P', cursive;
+  border-radius: 15px;
+  width: 15vw;
+  height: 5.8vw;
+  font-size: 1.5vw;
+}
+#attack:hover, 
+#heavy-attack:hover, 
+#heal:hover {
+  background-color: var(--red);
+}
+
+#home {
+  background-color: #FFB905;
+}
+
+#result {
+  color: #FFB905;
+  padding-bottom: 1.0em;
+}
+
+#home {
   border-radius: 20px;
-  position: relative;
+  text-align: center;
+  justify-content: center;
+  border: 0;
+  margin: 30px 20px; 
+  color: white;
+  width: 10em;
+  height: 5em;
+  background-color: var(--orange);
+  font-size: 2em;
 }
-
-.opp-bar, .your-bar {
-  background: rgb(0, 255, 0);
-  width: 100%;
-  height: 2.5vw;
-  position: relative;
-  border-radius: 20px;
-  transition: width .5s linear;
-}
-
-.knights img {
-  height: 20vw;
-  margin: 1em;
-}
-
-
-.your-health {
-  margin-top: 3vw;
-}
-
-
-.health-container {
-  bottom: 0px;
-}
-
-.action-button {
-  display: block;
-  margin: -2em 1.5em .5em 1.5em;
-  /* position: absolute; */
-}
-
-
-/* 
-@media screen and (min-width: 1007px) {
-  .definitions {
-    display: none;
-  }
-} */
