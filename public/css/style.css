@@ -106,6 +106,15 @@ body{
 }
 
 
+#home {
+  background-color: #FFB905;
+}
+
+#result {
+  color: #FFB905;
+  padding-bottom: 1.0em;
+}
+
 .attribute-controllers {
   flex-wrap: wrap;
   display: flex;
