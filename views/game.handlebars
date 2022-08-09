@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-  <div class="row x-center opponent-health">
+  <div class="row x-center opponent-health d-none">
     <div class="col-12-sm x-center">
 
       <p>opponent health:</p>
@@ -13,7 +13,7 @@
 
 
  
-  <div class="row x-center">
+  <div class="row x-center all-text d-none">
     <h2 id="oppTurn">It's your opponent's turn, please wait.</h2>
       <button type="button" class="btn btn-primary btn-lg action-button" id="attack">ATTACK</button>
       <br>
@@ -23,8 +23,8 @@
   </div>
 
   <div class="row x-center knights">
-    <img src="/assets/UserKnight.png"/>
-    <img src="/assets/OpponentKnight.png"/>
+    <img src="/assets/UserKnight.png" id="user-knight"/>
+    <img src="/assets/OpponentKnight.png" id="opponent-knight"/>
   </div>
 
 
@@ -32,7 +32,7 @@
 
 
 
-  <div class="row x-center user-health">
+  <div class="row x-center user-health d-none">
     <div class="col-12-sm x-center">
       <p>your health:</p>
       <div class="health-bar your-health" data-total="35" data-value="35">
@@ -53,6 +53,5 @@
 
 
 <script src="/js/healthbar.js"></script>
-
 <script src="/js/game.js"></script>
 
