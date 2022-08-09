@@ -9,7 +9,7 @@ var attackBtn = document.querySelector('#attack')
 var heavyBtn = document.querySelector('#heavy-attack')
 var healBtn = document.querySelector('#heal')
 //message variables
-var actionPrompt = document.querySelector('#action-prompt');
+
 var oppTurn = document.querySelector('#oppTurn')
 
 //functions to call actions
@@ -29,17 +29,17 @@ const healHandler = function () {
 }
 
 //event listeners for actions
-// document
-// .querySelector('#attack')
-// .addEventListener('click', attackHandler)
+document
+.querySelector('#attack')
+.addEventListener('click', attackHandler)
 
-// document
-// .querySelector('#heavy-attack')
-// .addEventListener('click', heavyAttackHandler)
+document
+.querySelector('#heavy-attack')
+.addEventListener('click', heavyAttackHandler)
 
-// document
-// .querySelector('#heal')
-// .addEventListener('click', healHandler)
+document
+.querySelector('#heal')
+.addEventListener('click', healHandler)
 
 // function for doing the selected action(affects database)
 function action(action,playerNum,id) {
@@ -68,7 +68,7 @@ function action(action,playerNum,id) {
             document.location.assign('/gameOver')
             return
         }
-
+        // console.log(data)
         if(player == 1){
             if(firstLoad){
                 let yourHealth = document.querySelector('.your-health')
@@ -100,10 +100,10 @@ function action(action,playerNum,id) {
             changeHealth(data.player1.health,'opp')
         }
         if(player == 1 && data.player1turn || player == 2 && !data.player1turn){
-            // isTurn()
+            isTurn()
         }
         else{
-            // notTurn()
+            notTurn()
         }
     })
     .catch(error => console.log(error))
@@ -115,7 +115,6 @@ gameStatus()
 const statusPing = setInterval(gameStatus,2000)
 //hiding buttons when its not your turn
 function notTurn(){
-    actionPrompt.setAttribute ('style', 'display:none')
     attackBtn.setAttribute ('style', 'display:none')
     heavyBtn.setAttribute ('style', 'display:none')
     healBtn.setAttribute ('style', 'display:none')
@@ -123,7 +122,6 @@ function notTurn(){
 }
 //showing the buttons when it is you turn
 function isTurn(){
-        actionPrompt.setAttribute ('style', 'display:block')
         attackBtn.setAttribute ('style', 'display:inline')
         heavyBtn.setAttribute ('style', 'display:inline')
         healBtn.setAttribute ('style', 'display:inline')
@@ -154,10 +152,4 @@ function changeHealth(newHealth,who){
     healthBar.dataset.value= newHealth
 }
 
-// setTimeout(function(){
-//     changeHealth(20,'you')
-// },1000)
 
-// setTimeout(function(){
-//     changeHealth(20,'opp')
-// },2000)
