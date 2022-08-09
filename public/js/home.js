@@ -1,6 +1,6 @@
-var homeButton = document.querySelector('#home')
-function goHome() {
-    document.location.assign('/')
-}
+var homeButton = document.querySelector('#home');
 
-homeButton.addEventListener('click', goHome)
+homeButton.addEventListener('click', (event) => {
+    event.preventDefault(); 
+    document.location.replace('/')
+});
