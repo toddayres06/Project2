@@ -75,6 +75,7 @@ function action(action,playerNum,id) {
     })
     .then(data => {
         if(data.winner){
+            localStorage.setItem("winner",data.winner)
             if(player == data.winner){
                 changeHealth(0,'opp')
             }else{
