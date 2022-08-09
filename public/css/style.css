@@ -76,6 +76,11 @@ body{
   outline: none;
 }
 
+.opponent-health {
+  margin-bottom: 10em;
+  top: 0;
+}
+
 #oppTurn {
   font-size: 2em;
   color: #FFB905;
@@ -99,6 +104,7 @@ body{
   width: 10em;
   height: 4em 
 }
+
 
 .attribute-controllers {
   flex-wrap: wrap;
@@ -301,6 +307,10 @@ i {
   transition: width .5s linear;
 }
 
+.knights img {
+  height: 20em;
+  margin: 1em;
+}
 
 
 .your-health {
@@ -318,11 +328,12 @@ i {
 }
 
 .health-container {
-  background-color: var(--blue);
-  position: absolute;
-  margin-bottom: 0;
-  height: 8vw;
   bottom: 0px;
+}
+
+.action-button {
+  display: block;
+  position: absolute;
 }
 
 
