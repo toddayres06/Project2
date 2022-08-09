@@ -9,7 +9,7 @@ const endGame = async () => {
     const gameData = localStorage.getItem("gameData");
     const gameID = JSON.parse(gameData).game_id;
     const result = await fetch(`/api/game/${gameID}`);
-    console.log(result);
+    console.log(result.JSON());
   }
   
 endGame();  
