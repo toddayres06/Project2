@@ -10,7 +10,8 @@ const endGame = async () => {
     const gameID = JSON.parse(gameData).game_id;
     const player = JSON.parse(gameData).player;
     const result = await fetch(`/api/game/${gameID}`);
-    console.log(result.json());
+    const data = result.json()
+    console.log(data.winner);
 }
-  
+
 endGame();  
