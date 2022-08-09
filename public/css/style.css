@@ -346,3 +346,18 @@ i{
   background-color: var(--orange);
   font-size: 2em;
 }
+
+/* The animation code */
+@keyframes user-attack {
+  0%   {left: 0px;}
+  50%  {left: 30px;}
+  100% {left: 0px;}
+}
+
+/* The element to apply the animation to */
+#user-knight {
+  left: 0px;
+  position: relative;
+  animation-name: user-attack;
+  animation-duration: 4s;
+}
