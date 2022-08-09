@@ -41,11 +41,13 @@ router.get('/:gameId', async (req, res) => {
       res.status(200).json(gameData);
       return;
     }
-    //else send a 404
-    res.status(404).json("sorry no game has this id")
+    else{
+
+      res.status(404).json("sorry no game has this id")
+    }
 
   }catch(err){
-    res.status(500).json(err);
+    res.status(500).json("some error");
   }
 });
 
