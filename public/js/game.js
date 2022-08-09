@@ -19,7 +19,7 @@ const attackHandler = function () {
 };
 
 const heavyAttackHandler = function () {
-    console.log('You did a special attack!')
+    action("heavy-attack",player,gameID)
     notTurn()
 }
 
@@ -112,7 +112,7 @@ function action(action,playerNum,id) {
 } 
 //checking the game status when the page loads
 gameStatus()
-//checking status every 2 minutes
+//checking status every 2 seconds
 const statusPing = setInterval(gameStatus,2000)
 //hiding buttons when its not your turn
 function notTurn(){

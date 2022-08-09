@@ -1,20 +1,18 @@
 # Battle Game
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![using dotenv](https://badge.dotenv.org/using.svg?r=1)](https://www.dotenv.org/r/github.com/motdotla/dotenv?r=1)
-![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+[![using dotenv](https://badge.dotenv.org/using.svg?r=1)](https://www.dotenv.org/r/github.com/motdotla/dotenv?r=1)<BR>
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
-![Insomnia](https://img.shields.io/badge/Insomnia-black?style=for-the-badge&logo=insomnia&logoColor=5849BE)
 ![Handlebars](https://img.shields.io/badge/Handlebars.js-f0772b?style=for-the-badge&logo=handlebarsdotjs&logoColor=black)
 ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![Javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![Font Awesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white)
-![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+<!-- ![Insomnia](https://img.shields.io/badge/Insomnia-black?style=for-the-badge&logo=insomnia&logoColor=5849BE) -->
 ## Project Description
 (Battle Game) is a multi-player turn based combat game that is played online. This game allows player to battle each other using customized characters. This project was inspired by many of the games that the developers played growing up. This game was built to satisfy the requirements for project 2 of the UT Austin coding bootcamp. 
 
@@ -37,29 +35,28 @@
      Random NPM package
      
 ### Developers
-[Andrew Cooke]()
 
-[Jaden Rodriguez]()
+[Todd Ayres](https://github.com/toddayres06/)
 
-[Todd Ayres]()
+[Andrew Cooke](https://github.com/andcooke/)
 
-[Adam Wagh]()
+[Jaden Rodriguez](https://github.com/jadentr44/)
 
+[Adam Wagh](https://github.com/adamwagh512/)
+<BR>
 ### Acknowledgements:
-We would like to acknowledge our tutors who provided invaluable assistance throughout this project. 
+We would like to acknowledge the following people who provided invaluable assistance throughout this project. 
 
-Andres Jimenez
+Jack Linhart, Andres Jimenez, Meg Meyers
+<br>
+We would also like to acknowledge our colleagues who helped this project by providing ideas and inspiration for improvement.
 
-Jack Linhart
-<br>
-<br>
-We would also like to acknowledge our class colleagues who helped this project by providing ideas and inspiration for improvement.
 
-[Jeffery Littleton](https://www.linkedin.com/in/littleton-jeffrey)
-<br>
-[Andrew Edwards]()
-<br>
 [Kurt Bixby](https://github.com/kurtbixby/)
+<br>
+[Andrew Edwards](https://github.com/Andrew87E)
+<br>
+[Jeffery Littleton](https://www.linkedin.com/in/littleton-jeffrey)
 
 ## License
 MIT License
