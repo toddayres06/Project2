@@ -13,21 +13,34 @@ const createGameHandler = async (event) => {
    }
 }
 
-const joinGameHandler = async (event) => {
+const joinGameHandler = (event) => {
   event.preventDefault(); 
   const gameID = document.querySelector('#game-id').value.trim().toUpperCase();
-  console.log(gameID)
+
   if (gameID) {
-    const response = await fetch(`/api/game/${gameID}`, {
-      method: 'GET',
+    fetch(`/api/game/${gameID}`)
+    .then(res => {
+        return res.json();
     })
-    if (response.ok) {
-      const gameData = {player: 2, game_id: gameID}
+    .then(data => {
+      if(!data.playing){
+        const gameData = {player: 2, game_id: gameID}
       localStorage.setItem("gameData", JSON.stringify(gameData));
       document.location.assign('/create');
-    } else {
-      alert(response.statusText);
-    }
+      }
+      else{
+        alert("game is already in progress")
+      }
+    })
+
+
+    // if (response.ok) {
+    //   let data = response.json()
+    //   console.log(data)
+      
+    // } else {
+    //   alert(response.statusText);
+    // }
   }
   // console.log(gameID)
   // document.location.assign('/create/2');
