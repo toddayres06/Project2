@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
     res.status(200).json(newGame);
     // res.render('create')
-    }catch (err) {
+    } catch (err) {
       res.status(500).json(err);
     }
 });
@@ -43,6 +43,7 @@ router.get('/:gameId', async (req, res) => {
     }
     //else send a 404
     res.status(404).json("sorry no game has this id")
+
   }catch(err){
     res.status(500).json(err);
   }
