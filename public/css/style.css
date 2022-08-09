@@ -64,6 +64,10 @@ h1 {
   border: 0;
   margin: 30px 20px; 
   color: white;
+  width: 20vw;
+  height: 2.5em;
+  background-color: var(--orange);
+  font-size: 5vw;
 }
 
 .definitions i{
@@ -232,19 +236,6 @@ h1 {
   text-align: center;
 }
 
-.rounded-button {
-  border-radius: 20px;
-  text-align: center;
-  justify-content: center;
-  border: 0;
-  margin: 30px 20px; 
-  color: white;
-  width: 20vw;
-  height: 2.5em;
-  background-color: var(--orange);
-  font-size: 5vw99;
-}
-
 .opponent-health {
   margin-bottom: 10em;
   top: 0;
@@ -375,7 +366,7 @@ h1 {
 
 /* The element to apply the animation to */
 #losing-knight {
-  left: -400px;
+  left: -0px;
   position: relative;
   animation-name: losing-knight;
   animation-duration: 10s;
