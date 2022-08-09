@@ -28,6 +28,7 @@ const healHandler = function () {
     notTurn()
 }
 
+
 //event listeners for actions
 document
 .querySelector('#attack')
