@@ -28,18 +28,18 @@ const healHandler = function () {
     notTurn()
 }
 
-//event listeners for actions
-// document
-// .querySelector('#attack')
-// .addEventListener('click', attackHandler)
+// event listeners for actions
+document
+.querySelector('#attack')
+.addEventListener('click', attackHandler)
 
-// document
-// .querySelector('#heavy-attack')
-// .addEventListener('click', heavyAttackHandler)
+document
+.querySelector('#heavy-attack')
+.addEventListener('click', heavyAttackHandler)
 
-// document
-// .querySelector('#heal')
-// .addEventListener('click', healHandler)
+document
+.querySelector('#heal')
+.addEventListener('click', healHandler)
 
 // function for doing the selected action(affects database)
 function action(action,playerNum,id) {
@@ -100,10 +100,10 @@ function action(action,playerNum,id) {
             changeHealth(data.player1.health,'opp')
         }
         if(player == 1 && data.player1turn || player == 2 && !data.player1turn){
-            // isTurn()
+            isTurn()
         }
         else{
-            // notTurn()
+            notTurn()
         }
     })
     .catch(error => console.log(error))
