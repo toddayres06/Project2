@@ -81,7 +81,7 @@ function action(action,playerNum,id) {
             }else{
                 changeHealth(0,'you')
             }
-            setTimeout(() => {document.location.assign('/gameOver')}, 1000);
+            setTimeout(() => {document.location.replace('/gameOver')}, 1000);
             return;
         }
         // console.log(data)
