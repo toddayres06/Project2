@@ -10,6 +10,12 @@ var heavyBtn = document.querySelector('#heavy-attack')
 var healBtn = document.querySelector('#heal')
 //message variables
 
+const opponentHealth = document.querySelector('.opponent-health');
+const userHealth = document.querySelector('.user-health');
+const text = document.querySelector('.all-text');
+
+
+
 var oppTurn = document.querySelector('#oppTurn')
 
 //functions to call actions
@@ -19,7 +25,10 @@ const attackHandler = function () {
 };
 
 const heavyAttackHandler = function () {
-    console.log('You did a special attack!')
+
+    action("heavy",player,gameID)
+
+
     notTurn()
 }
 
@@ -66,8 +75,10 @@ function action(action,playerNum,id) {
     })
     .then(data => {
         if(data.winner){
-            document.location.assign('/gameOver')
-            return
+            notTurn();
+            setTimeout(() => {document.location.assign('/gameOver')}, 1000);
+            // document.location.assign('/gameOver')
+            return;
         }
         // console.log(data)
         if(player == 1){
@@ -110,10 +121,19 @@ function action(action,playerNum,id) {
     .catch(error => console.log(error))
     
 } 
+
+
+setTimeout(() => {
+    gameStatus()
+    text.classList.remove("d-none");
+    opponentHealth.classList.remove("d-none");
+    userHealth.classList.remove("d-none");
+    //checking status every 2 seconds
+    const statusPing = setInterval(gameStatus,2000)
+}, 5000);
+
 //checking the game status when the page loads
-gameStatus()
-//checking status every 2 minutes
-const statusPing = setInterval(gameStatus,2000)
+
 //hiding buttons when its not your turn
 function notTurn(){
     attackBtn.setAttribute ('style', 'display:none')

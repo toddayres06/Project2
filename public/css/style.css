@@ -19,24 +19,55 @@ body{
   min-height: 100vh;
   overflow: hidden;
   background-color: var(--blue);
+  background-image:url("../assets/gameboy-border.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
+
+html{
+  height: 100%;
+}
+
+#screen {
+  position: absolute;
+  width: 100%;
+  height: 100%}
 
 h1 {
   color: var(--orange);
-  font-weight: 600;
-  font-size: 5vw;
-  margin-bottom: 3vh;
-  font-family: 'Press Start 2P', cursive;
-  text-shadow: .75vw .6vw 0px #000000;
+  font-size: 4.3vw;
+  text-shadow: .6vw .5vw 0 black;
 }
 
-h4 {
- font-weight: bold;
- padding: 20px;
+.container-fluid {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
 }
 
-i{
+#attribute-title {
+  font-size: 20px;
+  padding-bottom: 15px;
+  text-align: start;
+  color: var(--orange);
+}
+
+.rounded-button {
+  border-radius: 20px;
+  text-align: center;
+  justify-content: center;
+  border: 0;
+  margin: 30px 20px; 
   color: white;
+  width: 20vw;
+  height: 2.5em;
+  background-color: var(--orange);
+  font-size: 5vw;
 }
 
 .definitions i{
@@ -112,7 +143,6 @@ i{
   justify-content: space-between;
   max-width: 100%;
   width: 30vw;
-  /* margin-bottom: 30px; */
 }
 
 .health-progress-container::before,
@@ -126,7 +156,6 @@ i{
   left: 0;
   height: 4px;
   width: 100%;
-  z-index: -1;
   transform: translateY(-50%);
 }
 
@@ -140,7 +169,6 @@ i{
   left: 0;
   height: 4px;
   width: 0%;
-  z-index: -1;
   transform: translateY(-50%);
   transition: .4s ease;
 }
@@ -208,19 +236,6 @@ i{
   text-align: center;
 }
 
-.rounded-button {
-  border-radius: 20px;
-  text-align: center;
-  justify-content: center;
-  border: 0;
-  margin: 30px 20px; 
-  color: white;
-  width: 20vw;
-  height: 2.5em;
-  background-color: var(--orange);
-  font-size: 5vw;
-}
-
 .opponent-health {
   margin-bottom: 10em;
   top: 0;
@@ -264,14 +279,6 @@ i{
 #player {
   max-height: 300px;
 }
-
-#attribute-title {
-  font-size: 20px;
-  padding-bottom: 15px;
-  text-align: start;
-  color: var(--orange);
-}
-
 
 #game-id {
   border-top: none;
@@ -345,4 +352,49 @@ i{
   height: 5em;
   background-color: var(--orange);
   font-size: 2em;
+}
+
+@keyframes losing-knight {
+  0%   {left: 0px;}
+  100%  {left: -400px;}
+}
+
+@keyframes winning-knight {
+  0%   {right: 0px;}
+  100%  {right: -400px;}
+}
+
+/* The element to apply the animation to */
+#losing-knight {
+  left: -0px;
+  position: relative;
+  animation-name: losing-knight;
+  animation-duration: 10s;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+#winning-knight {
+  right: -400px;
+  position: relative;
+  animation-name: winning-knight;
+  animation-duration: 3s;
+}
+
+@keyframes walk-in {
+  0%   {left: -200px;}
+  100%  {left: 0px;}
+}
+
+#user-knight {
+  left: 0px;
+  position: relative;
+  animation-name: walk-in;
+  animation-duration: 5s;
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    background-image: none;
+  }
 }

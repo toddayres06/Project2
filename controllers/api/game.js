@@ -30,7 +30,7 @@ router.get('/:gameId', async (req, res) => {
     if(gameData.player1.health < 1){
       let gameOver = {winner:2}
       res.status(200).json(gameOver);
-      return
+      return;
     }
     if(gameData.player2){
       if(gameData.player2.health < 1){
@@ -63,10 +63,26 @@ router.post('/action', async (req, res) => {
   const gameData = await Game.findByPk(info.gameID);
   let player = gameData.player1
   if(info.player == 2){player = gameData.player2}
-  if(info.action == "attack"){
+  if(info.action == "attack" || info.action == "heavy"){
+    let message = 'attack';
     let opp;
     let attack = random.int((min = parseInt(player.strength)-2), (max =  parseInt(player.strength)+2))
-    
+    if(info.action == "heavy"){
+      message = 'heavy attack'
+      attack += 4;
+      let miss = random.int((min = 1), (max =  20))
+      console.log((7 + player.dexterity))
+      if(miss >(7 + player.dexterity)){
+        res.status(200).json("miss");
+        if(info.player == 1){
+          Game.update({player1turn:false},{where:{game_id:info.gameID}})
+        }
+        if(info.player == 2){
+          Game.update({player1turn:true},{where:{game_id:info.gameID}})
+        }
+        return
+      }
+    }
     if(info.player == 1){
       opp = gameData.player2
       opp.health -= attack
@@ -77,7 +93,8 @@ router.post('/action', async (req, res) => {
       opp.health -= attack
       Game.update({player1:opp,player1turn:true},{where:{game_id:info.gameID}})
     }
-    res.status(200).json(opp);
+    res.status(200).json(message)
+    return;
   }
   if(info.action == "heal"){  
     let healAb = parseInt(player.medical)
@@ -89,7 +106,7 @@ router.post('/action', async (req, res) => {
     if(info.player == 2){
       Game.update({player2:player,player1turn:true},{where:{game_id:info.gameID}})
     }
-    res.status(200).json(player);
+    res.status(200).json('heal');
   }
 });
 
