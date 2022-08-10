@@ -20,10 +20,8 @@ body{
   overflow: hidden;
   background-color: var(--blue);
   background-image:url("../assets/gameboy-border.png");
-  /* border-image-source: url("/assets/gameboy-border.png") 20%; */
   background-repeat: no-repeat;
-  background-size: 100% 100%; 
-  z-index: 0;
+  background-size: 100% 100%;
 }
 
 html{
@@ -33,9 +31,7 @@ html{
 #screen {
   position: absolute;
   width: 100%;
-  height: 100%;
-  z-index: 2
-}
+  height: 100%}
 
 h1 {
   color: var(--orange);
@@ -66,10 +62,12 @@ h1 {
   text-align: center;
   justify-content: center;
   border: 0;
-  /* padding: 10px 20px; */
   margin: 30px 20px; 
   color: white;
-  z-index: 9999;
+  width: 20vw;
+  height: 2.5em;
+  background-color: var(--orange);
+  font-size: 5vw;
 }
 
 .definitions i{
@@ -128,7 +126,6 @@ h1 {
 .action-button {
   display: block;
   margin: -2em 1.5em .5em 1.5em;
-  z-index: 9999;
 }
 
 .attribute-controllers {
@@ -159,7 +156,6 @@ h1 {
   left: 0;
   height: 4px;
   width: 100%;
-  z-index: -1;
   transform: translateY(-50%);
 }
 
@@ -173,7 +169,6 @@ h1 {
   left: 0;
   height: 4px;
   width: 0%;
-  z-index: -1;
   transform: translateY(-50%);
   transition: .4s ease;
 }
@@ -239,20 +234,6 @@ h1 {
   justify-content: center;
   font-weight: bold;
   text-align: center;
-}
-
-.rounded-button {
-  border-radius: 20px;
-  text-align: center;
-  justify-content: center;
-  border: 0;
-  margin: 30px 20px; 
-  color: white;
-  width: 20vw;
-  height: 2.5em;
-  background-color: var(--orange);
-  font-size: 5vw;
-  z-index: 9999;
 }
 
 .opponent-health {
@@ -374,18 +355,18 @@ h1 {
 }
 
 @keyframes losing-knight {
-  0%   {right: 0px;}
-  100%  {right: 500px;}
+  0%   {left: 0px;}
+  100%  {left: -400px;}
 }
 
 @keyframes winning-knight {
-  0%   {left: 0px;}
-  100%  {left: 200px;}
+  0%   {right: 0px;}
+  100%  {right: -400px;}
 }
 
 /* The element to apply the animation to */
 #losing-knight {
-  right: 0px;
+  left: -0px;
   position: relative;
   animation-name: losing-knight;
   animation-duration: 10s;
@@ -394,15 +375,14 @@ h1 {
 }
 
 #winning-knight {
-  left: 0px;
+  right: -400px;
   position: relative;
   animation-name: winning-knight;
-  animation-duration: 15s;
-  z-index: -1;
+  animation-duration: 3s;
 }
 
 @keyframes walk-in {
-  0%   {left: -300px;}
+  0%   {left: -200px;}
   100%  {left: 0px;}
 }
 
@@ -411,7 +391,6 @@ h1 {
   position: relative;
   animation-name: walk-in;
   animation-duration: 5s;
-  z-index: -2;
 }
 
 @media only screen and (max-width: 900px) {
