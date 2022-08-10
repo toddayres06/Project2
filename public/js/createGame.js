@@ -32,18 +32,7 @@ const joinGameHandler = (event) => {
         alert("game is already in progress")
       }
     })
-
-
-    // if (response.ok) {
-    //   let data = response.json()
-    //   console.log(data)
-      
-    // } else {
-    //   alert(response.statusText);
-    // }
   }
-  // console.log(gameID)
-  // document.location.assign('/create/2');
 };
 
 document

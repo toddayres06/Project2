@@ -110,6 +110,9 @@ router.post('/action', async (req, res) => {
     let healAb = parseInt(player.medical)
     let heal = random.int((min = healAb -1), (max =  healAb + 1))
     player.health += heal;
+    if(player.health > player.maxHealth){
+      player.health = player.maxHealth
+    }
     if(info.player == 1){
       Game.update({player1:player,player1turn:false},{where:{game_id:info.gameID}})
     }
