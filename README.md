@@ -1,4 +1,4 @@
-# Battle Game
+# Battle of The Shadow Tome
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 

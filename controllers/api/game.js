@@ -30,12 +30,22 @@ router.get('/:gameId', async (req, res) => {
     if(gameData.player1.health < 1){
       let gameOver = {winner:2}
       res.status(200).json(gameOver);
+      Game.destroy({
+        where: {
+          game_id: req.params.gameId,
+        }
+      })
       return;
     }
     if(gameData.player2){
       if(gameData.player2.health < 1){
         let gameOver = {winner:1}
         res.status(200).json(gameOver);
+        Game.destroy({
+          where: {
+            game_id: req.params.gameId,
+          }
+        })
         return
       }
     }
@@ -100,6 +110,9 @@ router.post('/action', async (req, res) => {
     let healAb = parseInt(player.medical)
     let heal = random.int((min = healAb -1), (max =  healAb + 1))
     player.health += heal;
+    if(player.health > player.maxHealth){
+      player.health = player.maxHealth
+    }
     if(info.player == 1){
       Game.update({player1:player,player1turn:false},{where:{game_id:info.gameID}})
     }
