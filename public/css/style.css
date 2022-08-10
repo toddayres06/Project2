@@ -368,7 +368,7 @@ h1 {
 
 /* The element to apply the animation to */
 #losing-knight {
-  left: -0px;
+  left: 0px;
   position: relative;
   animation-name: losing-knight;
   animation-duration: 10s;
