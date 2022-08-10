@@ -368,7 +368,7 @@ h1 {
 
 /* The element to apply the animation to */
 #losing-knight {
-  left: 0px;
+  left: -400px;
   position: relative;
   animation-name: losing-knight;
   animation-duration: 10s;
@@ -389,7 +389,7 @@ h1 {
 }
 
 #user-knight {
-  left: -200px;
+  left: 0px;
   position: relative;
   animation-name: walk-in;
   animation-duration: 5s;
