@@ -389,7 +389,7 @@ h1 {
 }
 
 #user-knight {
-  left: 0px;
+  left: -200px;
   position: relative;
   animation-name: walk-in;
   animation-duration: 5s;
