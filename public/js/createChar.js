@@ -3,7 +3,7 @@ class Character{
     this.health = 18 + (parseInt(health *7));
     this.maxHealth = 18 + (parseInt(health *7));
     this.strength = parseInt(strength) +3;
-    this.medical = (parseInt(medical) *2) +2;
+    this.medical = parseInt(medical) +3 ;
     this.dexterity = dexterity;
   }
 
