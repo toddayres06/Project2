@@ -7,7 +7,7 @@ const createGameHandler = async (event) => {
     let data = await response.json();
     const gameData = {player: 1, game_id: data.game_id}
     localStorage.setItem("gameData", JSON.stringify(gameData));
-    document.location.assign('/create');
+    document.location.replace('/create');
   } else {
      alert(response.statusText)
    }
@@ -26,7 +26,7 @@ const joinGameHandler = (event) => {
       if(!data.playing){
         const gameData = {player: 2, game_id: gameID}
       localStorage.setItem("gameData", JSON.stringify(gameData));
-      document.location.assign('/create');
+      document.location.replace('/create');
       }
       else{
         alert("game is already in progress")
