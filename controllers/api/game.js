@@ -26,7 +26,6 @@ router.get('/:gameId', async (req, res) => {
   try{
     //using the params to find the game
     const gameData = await Game.findByPk(req.params.gameId);
-    // console.log(gameData)
     if(gameData.player1.health < 1){
       let gameOver = {winner:2}
       res.status(200).json(gameOver);
@@ -78,12 +77,13 @@ router.post('/action', async (req, res) => {
     let opp;
     let attack = random.int((min = parseInt(player.strength)-2), (max =  parseInt(player.strength)+2))
     if(info.action == "heavy"){
+      let chance = (7 + player.dexterity)
       message = 'heavy attack'
       attack += 4;
       let miss = random.int((min = 1), (max =  20))
-      console.log((7 + player.dexterity))
-      if(miss >(7 + player.dexterity)){
-        res.status(200).json("miss");
+      let test = {miss:miss,chance:chance}
+      if(miss > chance){
+        res.status(200).json(test);
         if(info.player == 1){
           Game.update({player1turn:false},{where:{game_id:info.gameID}})
         }
