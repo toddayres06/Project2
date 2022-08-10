@@ -169,12 +169,16 @@ function changeHealth(newHealth,who){
     // let damagePercent = damage/total
 
     let barLength = (newHealth/total) * 100
-    if(who == "you"){
-        document.querySelector('.your-bar').style.width = barLength + '%'
-    }else{document.querySelector('.opp-bar').style.width = barLength + '%'}
     
-
+    
     healthBar.dataset.value= newHealth
+    if(who == "you"){
+        document.querySelector('.your-bar').style.width = barLength + '%';
+        document.querySelector('.yourDisplay').innerHTML = newHealth
+    }else{
+        document.querySelector('.opp-bar').style.width = barLength + '%'
+        document.querySelector('.oppDisplay').innerHTML = newHealth
+    }
 }
 
 
